@@ -147,8 +147,8 @@ build/
 nbbuild/
 dist/
 nbdist/
-nbactions.xml
-nb-configuration.xml
+.nb-gradle/
+
 
 ######################################################################################
 # https://github.com/github/gitignore/blob/master/Global/Vagrant.gitignore
