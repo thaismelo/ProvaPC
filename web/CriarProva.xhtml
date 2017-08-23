@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -31,7 +32,10 @@
                                 <h:outputText value="texto"/>
                                 <p:inputText value="#{alternativa.texto}"/>
                                 <h:outputText value="veracidade"/>
-                                <p:inputText value="#{alternativa.veracidade}"/>
+                                <p:selectOneRadio id="ver" value="#{alternativa.veracidade}">
+                                    <f:selectItem itemLabel="Verdadeira" itemValue="true"/>
+                                    <f:selectItem itemLabel="Falsa" itemValue="false"/>
+                                </p:selectOneRadio>
                             </p:panelGrid>
 
                         </p:tab>
