@@ -8,7 +8,6 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <p:growl id="gro" showSummary="true" showDetail="true"/>
         <h:form id="FormRespondeQuestao">
             <p:panel id="titulo" header="#{controladorRespostaQuestao.respostaProva.prova.titulo}" footer="" style="margin-bottom:20px">
                 <h:outputText value="#{controladorRespostaQuestao.respostaQuestao.questao.enunciado}"/>
@@ -19,8 +18,8 @@
                 </p:selectOneRadio>
                 <f:facet name="footer">
                     <p:commandButton type="submit" value="Finalizar Prova" action="#{controladorRespostaQuestao.salvarProva()}"/>
-                    <p:commandButton type="submit" value="Próxima Questão" action="#{controladorRespostaQuestao.proximo()}" update="FormRespondeQuestao gro" disabled="#{controladorRespostaQuestao.desativar()}"/>
-                    <p:commandButton type="submit" value="Voltar Questão" action="#{controladorRespostaQuestao.voltar()}" update="FormRespondeQuestao gro"/>
+                    <p:commandButton type="submit" value="Próxima Questão" action="#{controladorRespostaQuestao.proximo()}" update="FormRespondeQuestao" disabled="#{controladorRespostaQuestao.desativar()}"/>
+                    <p:commandButton type="submit" value="Voltar Questão" action="#{controladorRespostaQuestao.voltar()}" update="FormRespondeQuestao"/>
                 </f:facet>
 
 

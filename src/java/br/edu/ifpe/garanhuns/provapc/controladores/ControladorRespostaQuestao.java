@@ -60,8 +60,7 @@ public class ControladorRespostaQuestao {
         itr = respostaProva.recuperaQuestao().listIterator();
         this.proximo();
         
-        return "LoginAluno.xhtml";
-        //return "ResponderQuestao.xhtml";
+        return "ResponderQuestao.xhtml";
     }
 
     public RespostaProva getRespostaProva() {
