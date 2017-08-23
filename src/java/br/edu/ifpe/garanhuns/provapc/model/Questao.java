@@ -33,8 +33,7 @@ public class Questao{
     private String enunciado;
     @Column
     private double pontuacao;
-    @Column
-    private int tamanhoEspaco;
+    
     
     @OneToMany (mappedBy = "questao" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Alternativa> alternativas= new ArrayList<Alternativa>();
@@ -43,17 +42,15 @@ public class Questao{
     @JoinColumn(name="prova_id", updatable = false)
     private Prova prova;
 
-    public Questao(String enunciado, double pontuacao, int tamanhoEspaco) {
+    public Questao(String enunciado, double pontuacao) {
         this.enunciado = enunciado;
         this.pontuacao = pontuacao;
-        this.tamanhoEspaco = tamanhoEspaco;
     }
 
-    public Questao(long id, String enunciado, double pontuacao, int tamanhoEspaco) {
+    public Questao(long id, String enunciado, double pontuacao) {
         this.id = id;
         this.enunciado = enunciado;
         this.pontuacao = pontuacao;
-        this.tamanhoEspaco = tamanhoEspaco;
     }
     
     public void adicionarAlternativa(Alternativa a){
@@ -82,20 +79,12 @@ public class Questao{
         return pontuacao;
     }
 
-    public int getTamanhoEspaco() {
-        return tamanhoEspaco;
-    }
-
     public void setEnunciado(String enunciado) {
         this.enunciado = enunciado;
     }
 
     public void setPontuacao(double pontuaçao) {
         this.pontuacao = pontuaçao;
-    }
-
-    public void setTamanhoEspaco(int tamanhoEspaço) {
-        this.tamanhoEspaco = tamanhoEspaço;
     }
 
     public Prova getProva() {
@@ -112,7 +101,6 @@ public class Questao{
         hash = 97 * hash + (int) (this.id ^ (this.id >>> 32));
         hash = 97 * hash + Objects.hashCode(this.enunciado);
         hash = 97 * hash + (int) (Double.doubleToLongBits(this.pontuacao) ^ (Double.doubleToLongBits(this.pontuacao) >>> 32));
-        hash = 97 * hash + this.tamanhoEspaco;
         hash = 97 * hash + Objects.hashCode(this.alternativas);
         return hash;
     }
@@ -135,9 +123,6 @@ public class Questao{
         if (Double.doubleToLongBits(this.pontuacao) != Double.doubleToLongBits(other.pontuacao)) {
             return false;
         }
-        if (this.tamanhoEspaco != other.tamanhoEspaco) {
-            return false;
-        }
         if (!Objects.equals(this.enunciado, other.enunciado)) {
             return false;
         }
@@ -149,19 +134,18 @@ public class Questao{
 
     @Override
     public String toString() {
-        return "Questao{" + "id=" + id + ", enunciado=" + enunciado + ", pontuacao=" + pontuacao + ", tamanhoEspaco=" + tamanhoEspaco + ", Alternativa=" + alternativas + '}';
+        return "Questao{" + "id=" + id + ", enunciado=" + enunciado + ", pontuacao=" + pontuacao + ", Alternativa=" + alternativas + '}';
     }
 
     
     public void alterar(Questao q) {
         this.setEnunciado(q.getEnunciado());
         this.setPontuacao(q.getPontuacao());
-        this.setTamanhoEspaco(q.getTamanhoEspaco());
     }
 
     
     public Questao copiar() {
-        Questao q = new Questao(enunciado, pontuacao, tamanhoEspaco);
+        Questao q = new Questao(enunciado, pontuacao);
         for(Alternativa a : alternativas) {
             q.adicionarAlternativa(a.copiar());
         }

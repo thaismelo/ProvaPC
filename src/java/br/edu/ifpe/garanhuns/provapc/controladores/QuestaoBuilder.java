@@ -24,7 +24,6 @@ public class QuestaoBuilder {
     private long id;
     private String enunciado;
     private double pontuacao;
-    private int tamanhoEspaco;
     FacesContext faces = FacesContext.getCurrentInstance();
     private ControladorQuestao controlador = (ControladorQuestao) faces.getApplication().evaluateExpressionGet(faces, "#{controladorQuestao}", ControladorQuestao.class);
     private boolean alterando = false;
@@ -50,10 +49,6 @@ public class QuestaoBuilder {
         return pontuacao;
     }
 
-    public int getTamanhoEspaco() {
-        return tamanhoEspaco;
-    }
-
     public void setEnunciado(String enunciado) {
         this.enunciado = enunciado;
     }
@@ -62,12 +57,9 @@ public class QuestaoBuilder {
         this.pontuacao = pontuaçao;
     }
 
-    public void setTamanhoEspaco(int tamanhoEspaço) {
-        this.tamanhoEspaco = tamanhoEspaço;
-    }
-    
+   
     public Questao construir(){
-        Questao novaQuestao = new Questao(id,enunciado,pontuacao, tamanhoEspaco);
+        Questao novaQuestao = new Questao(id,enunciado,pontuacao);
         for(AlternativaBuilder q : this.alternativas){
             Alternativa a = q.construir();
             a.setQuestao(novaQuestao);
