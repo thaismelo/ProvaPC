@@ -24,6 +24,11 @@ public class Turma {
     long id;
     @Column
     private String turma;
+
+    public Turma(long id, String turma) {
+        this.id=id;
+        this.turma=turma;
+    }
     
     public String getTurma() {
         return turma;
