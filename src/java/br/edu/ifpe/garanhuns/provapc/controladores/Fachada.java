@@ -11,6 +11,7 @@ import br.edu.ifpe.garanhuns.provapc.model.Professor;
 import br.edu.ifpe.garanhuns.provapc.model.Prova;
 import br.edu.ifpe.garanhuns.provapc.model.Questao;
 import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
+import br.edu.ifpe.garanhuns.provapc.model.Turma;
 import br.edu.ifpe.garanhuns.provapc.model.Usuario;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
@@ -30,6 +31,7 @@ public class Fachada {
     private RepositorioGenerico<Aluno, Integer> repositorioAluno=null;
     private RepositorioGenerico<Usuario, Integer> repositorioUsuario=null;
     private RepositorioGenerico<RespostaProva, Integer> repositorioRespostaProva=null;
+    private RepositorioGenerico<Turma, Integer> repositorioTurma=null;
 
     
     
@@ -41,6 +43,7 @@ public class Fachada {
         this.repositorioAluno = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.aluno, FabricaRepositorios.BD);
         this.repositorioUsuario = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.usuario, FabricaRepositorios.BD);
         this.repositorioRespostaProva = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.respostaProva, FabricaRepositorios.BD);
+        this.repositorioTurma=FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.turma, FabricaRepositorios.BD);
     }
     
     public static Fachada getInstance() {
@@ -197,6 +200,22 @@ public class Fachada {
         return this.repositorioRespostaProva.recuperarTodos();
     }
     
+    public void inserirTurma(Turma turma){
+        this.repositorioTurma.inserir(turma);
+    }
+    public void alterarTurma(Turma turma){
+        this.repositorioTurma.alterar(turma);
+    }
     
-   
+    public void excluirTurma(Turma turma){
+        this.repositorioTurma.excluir(turma);
+    }
+    
+    public Turma recuperarTurma(int id){
+        return this.repositorioTurma.recuperar(id);
+    }
+    
+    public List<Turma> recuperarTurmas(int id){
+        return this.repositorioTurma.recuperarTodos();
+    }
 }
