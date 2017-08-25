@@ -24,11 +24,17 @@
                 <p:column headerText="id">
                     <h:outputText value="#{aluno.id}"/>
                 </p:column>
-                <p:column headerText="Matricula">
-                    <h:outputText value="#{aluno.matricula}"/>
-                </p:column>
                 <p:column headerText="Nome">
                     <h:outputText value="#{aluno.nome}"/>
+                </p:column>
+                <p:column headerText="Login">
+                    <h:outputText value="#{aluno.login}"/>
+                </p:column>
+                <p:column headerText="Senha">
+                    <h:outputText value="#{aluno.senha}"/>
+                </p:column>
+                <p:column headerText="Turma">
+                    <h:outputText value="#{aluno.turma}"/>
                 </p:column>
                 <f:facet name="footer">
                     <p:commandButton value="Adicionar Aluno" action="CadastrarAluno.xhtml"/>
