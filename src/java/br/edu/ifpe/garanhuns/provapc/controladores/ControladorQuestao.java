@@ -37,11 +37,11 @@ public class ControladorQuestao {
 
     public void remover(Questao q) {
         repositorio.excluir(q);
-    }
+        }
     
     public void alterar(Questao q) {
         repositorio.alterar(q);
-    }
+        }
 
 
     public String alterar() {
