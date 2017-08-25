@@ -24,26 +24,30 @@ public class Aluno{
     @GeneratedValue
     private long id;
     @Column
-    private String matricula;
+    private String login;
     @Column
     private String nome;
+    @Column
+    private String senha;
 
-    public Aluno(long id, String matricula, String nome) {
+    public Aluno(long id, String login, String nome, String senha) {
         this.id = id;
-        this.matricula = matricula;
+        this.login = login;
         this.nome = nome;
+        this.senha = senha;
     }
 
-    public Aluno(String matricula, String nome) {
-        this.matricula = matricula;
+    public Aluno(String login, String nome, String senha) {
+        this.login = login;
         this.nome = nome;
+        this.senha=senha;
     }
 
     public Aluno() {
     }
 
-    public String getMatricula() {
-        return matricula;
+    public String getLogin() {
+        return login;
     }
 
     public String getNome() {
@@ -54,8 +58,8 @@ public class Aluno{
         return id;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setNome(String nome) {
@@ -69,9 +73,10 @@ public class Aluno{
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 89 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.matricula);
-        hash = 89 * hash + Objects.hashCode(this.nome);
+        hash = 71 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 71 * hash + Objects.hashCode(this.login);
+        hash = 71 * hash + Objects.hashCode(this.nome);
+        hash = 71 * hash + Objects.hashCode(this.senha);
         return hash;
     }
 
@@ -90,27 +95,39 @@ public class Aluno{
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.matricula, other.matricula)) {
+        if (!Objects.equals(this.login, other.login)) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
+        if (!Objects.equals(this.senha, other.senha)) {
+            return false;
+        }
         return true;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     @Override
     public String toString() {
-        return "Aluno{" + "id=" + id + ", matricula=" + matricula + ", nome=" + nome + '}';
+        return "Aluno{" + "id=" + id + ", login=" + login + ", nome=" + nome + ", senha=" + senha + '}';
     }
+
 
     public void alterar(Aluno t) {
         this.setNome(t.getNome());
-        this.setMatricula(t.getMatricula());
+        this.setLogin(t.getLogin());
     }
 
     public Aluno copiar() {
-        return new Aluno (matricula, nome);
+        return new Aluno (login, nome, senha);
 }
     
 }

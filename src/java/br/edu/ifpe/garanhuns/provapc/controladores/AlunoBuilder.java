@@ -19,8 +19,9 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class AlunoBuilder {
     private long id;
-    private String matricula;
+    private String login;
     private String nome;
+    private String senha;
     FacesContext faces = FacesContext.getCurrentInstance();
     private ControladorAluno controlador = (ControladorAluno) faces.getApplication().evaluateExpressionGet(faces, "#{controladorAluno}", ControladorAluno.class);
     private boolean alterando = false;
@@ -29,8 +30,9 @@ public class AlunoBuilder {
         Aluno a = controlador.getAlterando();
         if(a!=null) {
             this.id = a.getId();
-            this.matricula = a.getMatricula();
+            this.login = a.getLogin();
             this.nome = a.getNome();
+            this.senha = a.getSenha();
             this.alterando = true;
         }
     }
@@ -39,8 +41,8 @@ public class AlunoBuilder {
         return id;
     }
 
-    public String getMatricula() {
-        return matricula;
+    public String getLogin() {
+        return login;
     }
 
     public String getNome() {
@@ -51,8 +53,8 @@ public class AlunoBuilder {
         this.id = id;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setNome(String nome) {
@@ -60,6 +62,14 @@ public class AlunoBuilder {
     }
     
     public Aluno construir() {
-        return new Aluno(id,matricula,nome);
+        return new Aluno(id,login,nome,senha);
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
