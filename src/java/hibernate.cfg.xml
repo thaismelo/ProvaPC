@@ -4,7 +4,7 @@
   <session-factory>
      <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/provapc1</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/provapc</property>
         <property name="hibernate.connection.username">projetoprovapc</property>
         <property name="hibernate.connection.password">senhappp</property>
         <property name="hbm2ddl.auto">update</property>    
