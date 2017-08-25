@@ -12,14 +12,14 @@ import javax.persistence.Table;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Thais, Lucinaldo Melquíades Jr.
  */
 @Entity
 @Table
-public class Aluno{
+public class Aluno {
+
     @Id
     @GeneratedValue
     private long id;
@@ -29,18 +29,30 @@ public class Aluno{
     private String nome;
     @Column
     private String senha;
+    @Column
+    private String turma;
 
-    public Aluno(long id, String login, String nome, String senha) {
+    public Aluno(long id, String login, String nome, String senha, String turma) {
         this.id = id;
         this.login = login;
         this.nome = nome;
         this.senha = senha;
+        this.turma = turma;
     }
 
-    public Aluno(String login, String nome, String senha) {
+    public Aluno(String login, String nome, String senha, String turma) {
         this.login = login;
         this.nome = nome;
-        this.senha=senha;
+        this.senha = senha;
+        this.turma = turma;
+    }
+
+    public String getTurma() {
+        return turma;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
     }
 
     public Aluno() {
@@ -72,11 +84,12 @@ public class Aluno{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 71 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 71 * hash + Objects.hashCode(this.login);
-        hash = 71 * hash + Objects.hashCode(this.nome);
-        hash = 71 * hash + Objects.hashCode(this.senha);
+        int hash = 7;
+        hash = 97 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.login);
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.senha);
+        hash = 97 * hash + Objects.hashCode(this.turma);
         return hash;
     }
 
@@ -104,6 +117,9 @@ public class Aluno{
         if (!Objects.equals(this.senha, other.senha)) {
             return false;
         }
+        if (!Objects.equals(this.turma, other.turma)) {
+            return false;
+        }
         return true;
     }
 
@@ -117,9 +133,8 @@ public class Aluno{
 
     @Override
     public String toString() {
-        return "Aluno{" + "id=" + id + ", login=" + login + ", nome=" + nome + ", senha=" + senha + '}';
+        return "Aluno{" + "id=" + id + ", login=" + login + ", nome=" + nome + ", senha=" + senha + ", turma=" + turma + '}';
     }
-
 
     public void alterar(Aluno t) {
         this.setNome(t.getNome());
@@ -127,7 +142,7 @@ public class Aluno{
     }
 
     public Aluno copiar() {
-        return new Aluno (login, nome, senha);
-}
-    
+        return new Aluno(login, nome, senha, turma);
+    }
+
 }
