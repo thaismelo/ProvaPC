@@ -5,6 +5,7 @@
  */
 package br.edu.ifpe.garanhuns.provapc.model;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,19 +24,23 @@ public class Professor {
     @GeneratedValue
     private long id;
     @Column
-    private int siape;
+    private String login;
     @Column
     private String nome;
+    @Column
+    private String senha;
 
-    public Professor(long id, int siap, String nome) {
+    public Professor(long id, String login, String nome, String senha) {
         this.id = id;
-        this.siape = siap;
+        this.login = login;
         this.nome = nome;
+        this.senha=senha;
     }
 
-    public Professor(int siap, String nome) {
-        this.siape = siap;
+    public Professor(String login, String nome, String senha) {
+        this.login = login;
         this.nome = nome;
+        this.senha=senha;
     }
 
     public Professor() {
@@ -49,12 +54,12 @@ public class Professor {
         this.id = id;
     }
 
-    public int getSiape() {
-        return siape;
+    public String getLogin() {
+        return login;
     }
 
-    public void setSiape(int siape) {
-        this.siape = siape;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getNome() {
@@ -65,11 +70,21 @@ public class Professor {
         this.nome = nome;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 29 * hash + this.siape;
+        int hash = 5;
+        hash = 67 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 67 * hash + Objects.hashCode(this.login);
+        hash = 67 * hash + Objects.hashCode(this.nome);
+        hash = 67 * hash + Objects.hashCode(this.senha);
         return hash;
     }
 
@@ -88,7 +103,13 @@ public class Professor {
         if (this.id != other.id) {
             return false;
         }
-        if (this.siape != other.siape) {
+        if (!Objects.equals(this.login, other.login)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.senha, other.senha)) {
             return false;
         }
         return true;
@@ -96,16 +117,19 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor{" + "id=" + id + ", siap=" + siape + '}';
+        return "Professor{" + "id=" + id + ", login=" + login + ", nome=" + nome + ", senha=" + senha + '}';
     }
 
+    
+
     public void alterar(Professor t) {
-        this.setSiape(t.getSiape());
+        this.setLogin(t.getLogin());
         this.setNome(t.getNome());
+        this.setSenha(t.getSenha());
     }
 
     public Professor copiar() {
-        return new Professor (siape,nome);
+        return new Professor (login,nome,senha);
     }
     
     

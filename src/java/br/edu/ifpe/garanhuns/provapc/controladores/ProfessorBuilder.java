@@ -19,8 +19,9 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class ProfessorBuilder {
     private long id;
-    private int siape;
+    private String login;
     private String nome;
+    private String senha;
     FacesContext faces = FacesContext.getCurrentInstance();
     private ControladorProfessor controlador = (ControladorProfessor) faces.getApplication().evaluateExpressionGet(faces, "#{controladorProfessor}", ControladorProfessor.class);
     private boolean alterando = false;
@@ -29,18 +30,31 @@ public class ProfessorBuilder {
         Professor p = controlador.getAlterando();
         if(p!=null) {
             this.id = p.getId();
-            this.siape = p.getSiape();
+            this.login = p.getLogin();
             this.nome = p.getNome();
+            this.senha=p.getSenha();
             this.alterando = true;
         }
     }
 
-    public long getId() {
-        return id;
+    public String getLogin() {
+        return login;
     }
 
-    public int getSiape() {
-        return siape;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    public long getId() {
+        return id;
     }
 
     public String getNome() {
@@ -51,15 +65,11 @@ public class ProfessorBuilder {
         this.id = id;
     }
 
-    public void setSiape(int siape) {
-        this.siape = siape;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
     
     public Professor construir() {
-        return new Professor(id,siape,nome);
+        return new Professor(id,login,nome,senha);
     }
 }
