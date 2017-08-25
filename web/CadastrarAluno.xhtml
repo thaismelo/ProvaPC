@@ -9,14 +9,20 @@
     </h:head>
     <h:body>
         <h:form id="FormQuest">
+            <p:messages id="mensagens"/>
             <ui:include src="Menu.xhtml"/>
             <p:fieldset legend="Cadastrar Aluno">
                 <p:panelGrid columns="2">
-                    <h:outputText value="Matricula"/>
-                    <p:inputText value="#{alunoBuilder.matricula}"/>
-                    <h:outputText value="Nome"/>
+                    <h:outputText value="Nome Completo"/>
                     <p:inputText value="#{alunoBuilder.nome}"/>
-                    <p:commandButton value="Cadastrar" action="#{controladorAluno.adicionar(alunoBuilder.construir())}"/>
+                    <h:outputText value="Turma"/>
+                    <p:inputText value=""/>
+                    <h:outputText value="Login"/>
+                    <p:keyboard value="#{alunoBuilder.login}"/>
+                    <h:outputText value="Senha"/>
+                    <p:password value="#{alunoBuilder.senha}" feedback="true" required="true"/>
+                   
+                    <p:commandButton value="Cadastrar" action="#{controladorAluno.adicionar(alunoBuilder.construir())}" update="mensagens"/>
                 </p:panelGrid>
             </p:fieldset>
         </h:form>
