@@ -139,6 +139,8 @@ public class Aluno {
     public void alterar(Aluno t) {
         this.setNome(t.getNome());
         this.setLogin(t.getLogin());
+        this.setTurma(t.getTurma());
+        this.setSenha(t.getSenha());
     }
 
     public Aluno copiar() {
