@@ -23,7 +23,6 @@ public class AlunoBuilder {
     private String login;
     private String nome;
     private String senha;
-    private String turma;
     FacesContext faces = FacesContext.getCurrentInstance();
     private ControladorAluno controlador = (ControladorAluno) faces.getApplication().evaluateExpressionGet(faces, "#{controladorAluno}", ControladorAluno.class);
     private boolean alterando = false;
@@ -35,17 +34,8 @@ public class AlunoBuilder {
             this.login = a.getLogin();
             this.nome = a.getNome();
             this.senha = a.getSenha();
-            this.turma = a.getTurma();
             this.alterando = true;
         }
-    }
-
-    public String getTurma() {
-        return turma;
-    }
-
-    public void setTurma(String turma) {
-        this.turma = turma;
     }
 
     public long getId() {
@@ -73,7 +63,7 @@ public class AlunoBuilder {
     }
 
     public Aluno construir() {
-        return new Aluno(id, login, nome, senha, turma);
+        return new Aluno(id, login, nome, senha);
     }
 
     public String getSenha() {

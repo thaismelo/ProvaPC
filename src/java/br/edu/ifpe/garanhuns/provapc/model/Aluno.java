@@ -29,30 +29,19 @@ public class Aluno {
     private String nome;
     @Column
     private String senha;
-    @Column
-    private String turma;
+    
 
-    public Aluno(long id, String login, String nome, String senha, String turma) {
+    public Aluno(long id, String login, String nome, String senha) {
         this.id = id;
         this.login = login;
         this.nome = nome;
         this.senha = senha;
-        this.turma = turma;
     }
 
-    public Aluno(String login, String nome, String senha, String turma) {
+    public Aluno(String login, String nome, String senha) {
         this.login = login;
         this.nome = nome;
         this.senha = senha;
-        this.turma = turma;
-    }
-
-    public String getTurma() {
-        return turma;
-    }
-
-    public void setTurma(String turma) {
-        this.turma = turma;
     }
 
     public Aluno() {
@@ -89,7 +78,6 @@ public class Aluno {
         hash = 97 * hash + Objects.hashCode(this.login);
         hash = 97 * hash + Objects.hashCode(this.nome);
         hash = 97 * hash + Objects.hashCode(this.senha);
-        hash = 97 * hash + Objects.hashCode(this.turma);
         return hash;
     }
 
@@ -117,9 +105,6 @@ public class Aluno {
         if (!Objects.equals(this.senha, other.senha)) {
             return false;
         }
-        if (!Objects.equals(this.turma, other.turma)) {
-            return false;
-        }
         return true;
     }
 
@@ -133,18 +118,17 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno{" + "id=" + id + ", login=" + login + ", nome=" + nome + ", senha=" + senha + ", turma=" + turma + '}';
+        return "Aluno{" + "id=" + id + ", login=" + login + ", nome=" + nome + ", senha=" + senha + '}';
     }
 
     public void alterar(Aluno t) {
         this.setNome(t.getNome());
         this.setLogin(t.getLogin());
-        this.setTurma(t.getTurma());
         this.setSenha(t.getSenha());
     }
 
     public Aluno copiar() {
-        return new Aluno(login, nome, senha, turma);
+        return new Aluno(login, nome, senha);
     }
 
 }
