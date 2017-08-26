@@ -11,12 +11,15 @@
         <h:form id="FormQuest">
             <ui:include src="Menu.xhtml"/>
             <p:fieldset legend="Cadastrar Professor">
+                <p:messages id="mens"/>
                 <p:panelGrid columns="2">
-                    <h:outputText value="Siape"/>
-                    <p:inputText value="#{professorBuilder.siape}"/>
                     <h:outputText value="Nome"/>
                     <p:inputText value="#{professorBuilder.nome}"/>
-                    <p:commandButton value="Cadastrar" action="#{controladorProfessor.adicionar(professorBuilder.construir())}"/>
+                    <h:outputText value="Login"/>
+                    <p:keyboard value="#{professorBuilder.login}"/>
+                    <h:outputText value="Senha"/>
+                    <p:password value="#{professorBuilder.senha}"
+                                <p:commandButton value="Cadastrar" action="#{controladorProfessor.adicionar(professorBuilder.construir())}" update="mens"/>
                 </p:panelGrid>
             </p:fieldset>
         </h:form>
