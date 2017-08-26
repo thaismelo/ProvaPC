@@ -7,6 +7,7 @@ package br.edu.ifpe.garanhuns.provapc.controladores;
 
 import br.edu.ifpe.garanhuns.provapc.controladores.ControladorAluno;
 import br.edu.ifpe.garanhuns.provapc.model.Aluno;
+import br.edu.ifpe.garanhuns.provapc.model.Turma;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -23,6 +24,7 @@ public class AlunoBuilder {
     private String login;
     private String nome;
     private String senha;
+    private Turma turma;
     FacesContext faces = FacesContext.getCurrentInstance();
     private ControladorAluno controlador = (ControladorAluno) faces.getApplication().evaluateExpressionGet(faces, "#{controladorAluno}", ControladorAluno.class);
     private boolean alterando = false;
@@ -34,8 +36,17 @@ public class AlunoBuilder {
             this.login = a.getLogin();
             this.nome = a.getNome();
             this.senha = a.getSenha();
+            this.turma=a.getTurma();
             this.alterando = true;
         }
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 
     public long getId() {
@@ -63,7 +74,7 @@ public class AlunoBuilder {
     }
 
     public Aluno construir() {
-        return new Aluno(id, login, nome, senha);
+        return new Aluno(id, login, nome, senha,turma);
     }
 
     public String getSenha() {
