@@ -34,7 +34,7 @@ public class ControladorProfessor {
     
     public String adicionar(Professor p) {
             repositorio.inserir(p);
-        return "ApresentarProfessor.xhtml";
+        return "CadastrarTurma.xhtml";
     }
     
     public void remover(Professor p) {
