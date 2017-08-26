@@ -31,10 +31,22 @@ public class ControladorQuestao {
     }
     
     public String adicionar(Questao q) {
-            repositorio.inserir(q);
+            if(alterando==null){
+                 repositorio.inserir(q);
+            }else{
+                repositorio.alterar(q);
+            }
+                    
         return "ApresentarQuestao.xhtml";
     }
 
+    public String getTextoDoBotao(){
+        if(alterando==null){
+            return "cadastrar";
+        }else{
+            return "alterar";
+        }
+    }
     public void remover(Questao q) {
         repositorio.excluir(q);
         }
