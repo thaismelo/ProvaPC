@@ -16,14 +16,14 @@
                 <p:panelGrid columns="2">
                     <h:outputText value="Nome Completo"/>
                     <p:inputText value="#{alunoBuilder.nome}"/>
-                    <p:selectOneListbox id="turma" >
-                        <f:selectItem itemLabel=""/>
+                    <h:outputText value="Turma"/>
+                    <p:selectOneListbox id="turma">
+                        <f:selectItems value="#{controladorTurma.recuperarTodos()}"/>
                     </p:selectOneListbox>
                     <h:outputText value="Login"/>
                     <p:keyboard value="#{alunoBuilder.login}"/>
                     <h:outputText value="Senha"/>
                     <p:password value="#{alunoBuilder.senha}" feedback="true" required="true"/>
-                   
                     <p:commandButton value="Cadastrar" action="#{controladorAluno.adicionar(alunoBuilder.construir())}" update="mensagens"/>
                 </p:panelGrid>
             </p:fieldset>
