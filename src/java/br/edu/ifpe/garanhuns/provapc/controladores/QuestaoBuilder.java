@@ -11,14 +11,14 @@ import br.edu.ifpe.garanhuns.provapc.model.Questao;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 /**
  *
  * @author Lucinaldo Melquíades Jr.
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class QuestaoBuilder {
     
     private long id;
