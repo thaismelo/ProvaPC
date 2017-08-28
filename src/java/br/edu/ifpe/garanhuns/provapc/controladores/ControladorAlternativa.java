@@ -34,8 +34,12 @@ public class ControladorAlternativa {
     }
     
      public String adicionar(Alternativa a) {
-            repositorio.inserir(a);
-        return "ApresentarAlternativa.xhtml";
+         if(alterando==null){
+                 repositorio.inserir(a);
+            }else{
+                repositorio.alterar(a);
+            }
+         return "ApresentarAlternativa.xhtml";
     }
      
      public String alterar() {
