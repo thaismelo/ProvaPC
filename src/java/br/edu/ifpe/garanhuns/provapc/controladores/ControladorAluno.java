@@ -6,6 +6,7 @@
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
 import br.edu.ifpe.garanhuns.provapc.model.Aluno;
+import br.edu.ifpe.garanhuns.provapc.model.dao.DaoManagerHiber;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
 import java.util.List;
@@ -73,4 +74,9 @@ public class ControladorAluno {
     public void setAlterando(Aluno alterando) {
         this.alterando = alterando;
     }
+    
+   // public boolean validandoLogin(String logEsperado){
+     //  List login = DaoManagerHiber.getInstance().recoverSQL("select COUNT(login) from aluno where login= 'logEsperado'");
+      // return COUNT>0;
+   // }
 }
