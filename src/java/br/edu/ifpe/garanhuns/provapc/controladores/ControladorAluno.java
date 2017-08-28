@@ -35,10 +35,21 @@ public class ControladorAluno {
     }
     
     public String adicionar(Aluno a) {
-            repositorio.inserir(a);
+           if(alterando==null){
+                 repositorio.inserir(a);
+            }else{
+                repositorio.alterar(a);
+            }
         return "ApresentarAluno.xhtml";
     }
     
+    public String getTextoDoBotao(){
+        if(alterando==null){
+            return "cadastrar";
+        }else{
+            return "alterar";
+        }
+    }
     public void remover(Aluno a) {
         repositorio.excluir(a);
     }

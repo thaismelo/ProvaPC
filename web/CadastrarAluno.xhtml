@@ -24,7 +24,7 @@
                     <p:keyboard value="#{alunoBuilder.login}"/>
                     <h:outputText value="Senha"/>
                     <p:password value="#{alunoBuilder.senha}" feedback="true" required="true"/>
-                    <p:commandButton value="Cadastrar" action="#{controladorAluno.adicionar(alunoBuilder.construir())}" update="mensagens"/>
+                    <p:commandButton value="#{controladorAluno.textoDoBotao}" action="#{controladorAluno.adicionar(alunoBuilder.construir())}" update="mensagens"/>
                 </p:panelGrid>
             </p:fieldset>
         </h:form>
