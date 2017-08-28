@@ -27,7 +27,7 @@
                     <h:outputText value="#{prova.titulo}"/>
                 </p:column>
                 <f:facet name="footer">
-                    <p:commandButton value="Adicionar" oncomplete="PF('createDialog').show()" action="#{controladorProva.criarBuilder()}" update=":FormProva:createDialog"/>
+                    <p:commandButton value="#{controladorProva.textoDoBotao}" oncomplete="PF('createDialog').show()" action="#{controladorProva.criarBuilder()}" update=":FormProva:createDialog"/>
                     <p:commandButton value="Atualizar Página" oncomplete=":FromProva:table"/>
                     <p:commandButton value="Remover" oncomplete=":FromProva:table" action="#{controladorProva.remover()}"/>
                     <p:commandButton value="Alterar" oncomplete="PF('createDialog').show()" action="#{controladorProva.alterarBuilder()}" update=":FormProva:createDialog"/>

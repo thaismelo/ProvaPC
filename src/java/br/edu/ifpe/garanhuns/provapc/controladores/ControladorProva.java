@@ -20,14 +20,15 @@ import org.hibernate.Hibernate;
  *
  * @author Thais
  */
-@ManagedBean (eager =true)
+@ManagedBean(eager = true)
 @SessionScoped
 public class ControladorProva {
+
     private Prova alterando = null;
     private Prova selected = null;
     private ProvaBuilder builder = new ProvaBuilder();
     private ControladorResposta resposta = new ControladorResposta();
-    
+
     RepositorioGenerico<Prova, Integer> repositorio = null;
 
     public ControladorResposta getResposta() {
@@ -37,21 +38,33 @@ public class ControladorProva {
     public void setResposta(ControladorResposta resposta) {
         this.resposta = resposta;
     }
-    
-    
+
     public ControladorProva() {
         this.repositorio = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.prova, FabricaRepositorios.BD);
     }
+
     public void remover() {
         remover(selected);
     }
-    
+
     public String adicionar(Prova p) {
+        if (alterando == null) {
             repositorio.inserir(p);
             this.builder = new ProvaBuilder();
+        } else {
+            repositorio.alterar(p);
+        }
         return "ApresentarProva.xhtml";
     }
     
+    public String getTextoDoBotao(){
+        if(alterando==null){
+            return "cadastrar";
+        }else{
+            return "alterar";
+        }
+    }
+   
     public String alterar() {
         this.alterando = selected;
         return "CadastrarProva.xhtml";
@@ -88,9 +101,9 @@ public class ControladorProva {
     public void setAlterando(Prova alterando) {
         this.alterando = alterando;
     }
-    
+
     public String getDialogName() {
-        if(alterando != null) {
+        if (alterando != null) {
             return "Alterando";
         } else {
             return "Criando";
@@ -104,28 +117,28 @@ public class ControladorProva {
     public void setBuilder(ProvaBuilder builder) {
         this.builder = builder;
     }
-    
+
     public void criarBuilder() {
         this.setBuilder(new ProvaBuilder());
     }
-    
+
     public void alterarBuilder() {
         this.setBuilder(new ProvaBuilder(this.selected));
     }
-    
+
     public void adicionar() {
         this.adicionar(this.builder.construir());
         criarBuilder();
     }
-    
-    public String responder(){
+
+    public String responder() {
         resposta = new ControladorResposta(selected);
         return "ResponderProva.xhtml";
-        
+
     }
-    
-    public String retornaPag(){
+
+    public String retornaPag() {
         return "ResponderQuestao.xhtml";
     }
-   
+
 }
