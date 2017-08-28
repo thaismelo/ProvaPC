@@ -19,7 +19,7 @@
                     <p:keyboard value="#{professorBuilder.login}"/>
                     <h:outputText value="Senha"/>
                     <p:password value="#{professorBuilder.senha}"/>
-                                <p:commandButton value="Cadastrar" action="#{controladorProfessor.adicionar(professorBuilder.construir())}" update="mens"/>
+                    <p:commandButton value="#{controladorProfessor.textoDoBotao}" action="#{controladorProfessor.adicionar(professorBuilder.construir())}" update="mens"/>
                 </p:panelGrid>
             </p:fieldset>
         </h:form>

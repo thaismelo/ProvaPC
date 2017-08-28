@@ -19,36 +19,50 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class ControladorProfessor {
+
     private Professor alterando = null;
     private Professor selected = null;
 
-    RepositorioGenerico<Professor, Integer> repositorio= null;
+    RepositorioGenerico<Professor, Integer> repositorio = null;
 
     public ControladorProfessor() {
         this.repositorio = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.professor, FabricaRepositorios.BD);
     }
-    
+
     public void remover() {
         remover(selected);
     }
-    
+
     public String adicionar(Professor p) {
+        if (alterando == null) {
             repositorio.inserir(p);
+        } else {
+            repositorio.alterar(p);
+        }
         return "CadastrarTurma.xhtml";
     }
     
+     public String getTextoDoBotao(){
+        if(alterando==null){
+            return "cadastrar";
+        }else{
+            return "alterar";
+        }
+    }
+     
     public void remover(Professor p) {
         repositorio.excluir(p);
     }
-    
+
     public void alterar(Professor p) {
         repositorio.alterar(p);
     }
-    
+
     public String alterar() {
         this.alterando = selected;
         return "CadastrarProfessor.xhtml";
     }
+
     public Professor recupearar(int id) {
         return repositorio.recuperar(id);
     }
@@ -56,7 +70,7 @@ public class ControladorProfessor {
     public List<Professor> recuperarTodos() {
         return repositorio.recuperarTodos();
     }
-    
+
     public Professor getSelected() {
         return selected;
     }
