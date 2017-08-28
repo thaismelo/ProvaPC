@@ -21,7 +21,7 @@ and open the template in the editor.
                     <p:inputText value="#{alternativaBuilder.texto}"/>
                     <h:outputText value="Veracidade"/>
                     <p:inputText value="#{alternativaBuilder.veracidade}"/>
-                    <p:commandButton value="Cadastrar" action="#{controladorAlternativa.adicionar(alternativaBuilder.construir())}"/>
+                    <p:commandButton value="#{controladorAlternativa.textoDoBotao}" action="#{controladorAlternativa.adicionar(alternativaBuilder.construir())}"/>
                 </p:panelGrid>
                 
             </p:fieldset>
