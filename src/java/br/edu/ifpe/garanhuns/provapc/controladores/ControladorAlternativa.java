@@ -75,4 +75,12 @@ public class ControladorAlternativa {
     public void setAlterando(Alternativa alterando) {
         this.alterando = alterando;
     }
+    
+    public String getTextoDoBotao(){
+        if(alterando==null){
+            return "cadastrar";
+        }else{
+            return "alterar";
+        }
+    }
 }
