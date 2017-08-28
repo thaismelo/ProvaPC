@@ -6,14 +6,14 @@
 package br.edu.ifpe.garanhuns.provapc.controladores;
 import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author João Witor
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class AlternativaBuilder {
      private long id;
      private String texto;
