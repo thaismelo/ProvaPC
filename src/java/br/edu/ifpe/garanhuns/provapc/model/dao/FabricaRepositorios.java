@@ -16,9 +16,8 @@ public class FabricaRepositorios {
     public static final int prova = 3;
     public static final int professor = 4;
     public static final int aluno = 5;
-    public static final int usuario = 6;
-    public static final int respostaProva = 7;
-    public static final int turma= 8;
+    public static final int respostaProva = 6;
+    public static final int turma= 7;
 
 
     public static final int BD = 1;
@@ -35,8 +34,6 @@ public class FabricaRepositorios {
                 return new RepositorioProfessor();
             }else if(tipoNegocio==aluno){
                 return new RepositorioAluno();
-            }else if(tipoNegocio==usuario){
-                return new RepositorioUsuario();
             }else if(tipoNegocio==respostaProva){
                 return new RepositorioRespostaProva();
             }else if(tipoNegocio==turma){

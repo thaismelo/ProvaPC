@@ -12,7 +12,6 @@ import br.edu.ifpe.garanhuns.provapc.model.Prova;
 import br.edu.ifpe.garanhuns.provapc.model.Questao;
 import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
 import br.edu.ifpe.garanhuns.provapc.model.Turma;
-import br.edu.ifpe.garanhuns.provapc.model.Usuario;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
 import java.util.List;
@@ -29,7 +28,6 @@ public class Fachada {
     private RepositorioGenerico<Prova, Integer> repositorioProva=null;
     private RepositorioGenerico<Professor, Integer> repositorioProfessor=null;
     private RepositorioGenerico<Aluno, Integer> repositorioAluno=null;
-    private RepositorioGenerico<Usuario, Integer> repositorioUsuario=null;
     private RepositorioGenerico<RespostaProva, Integer> repositorioRespostaProva=null;
     private RepositorioGenerico<Turma, Integer> repositorioTurma=null;
 
@@ -41,7 +39,6 @@ public class Fachada {
         this.repositorioProva = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.prova, FabricaRepositorios.BD);
         this.repositorioProfessor = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.professor, FabricaRepositorios.BD);
         this.repositorioAluno = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.aluno, FabricaRepositorios.BD);
-        this.repositorioUsuario = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.usuario, FabricaRepositorios.BD);
         this.repositorioRespostaProva = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.respostaProva, FabricaRepositorios.BD);
         this.repositorioTurma=FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.turma, FabricaRepositorios.BD);
     }
@@ -157,27 +154,6 @@ public class Fachada {
     
     public List<Aluno> recuperarAlunos(int id){
         return this.repositorioAluno.recuperarTodos();
-    }
-    
-    
-    public void inserirUsuario(Usuario usuario){
-        this.repositorioUsuario.inserir(usuario);
-    }
-    
-    public void alterarUsuario(Usuario usuario){
-        this.repositorioUsuario.alterar(usuario);
-    }
-    
-    public void excluirUsuario(Usuario usuario){
-        this.repositorioUsuario.excluir(usuario);
-    }
-    
-    public Usuario recuperarUsuario(int id){
-        return this.repositorioUsuario.recuperar(id);
-    }
-    
-    public List<Usuario> recuperarUsuarios(int id){
-        return this.repositorioUsuario.recuperarTodos();
     }
     
     public void inserirRespostaProva(RespostaProva respostaProva){
