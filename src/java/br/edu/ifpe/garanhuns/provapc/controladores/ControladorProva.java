@@ -48,23 +48,11 @@ public class ControladorProva {
     }
 
     public String adicionar(Prova p) {
-        if (alterando == null) {
-            repositorio.inserir(p);
-            this.builder = new ProvaBuilder();
-        } else {
-            repositorio.alterar(p);
-        }
+        repositorio.inserir(p);
+        this.builder = new ProvaBuilder();
         return "ApresentarProva.xhtml";
     }
-    
-    public String getTextoDoBotao(){
-        if(alterando==null){
-            return "cadastrar";
-        }else{
-            return "alterar";
-        }
-    }
-   
+
     public String alterar() {
         this.alterando = selected;
         return "CadastrarProva.xhtml";
