@@ -34,22 +34,13 @@ public class ControladorProfessor {
     }
 
     public String adicionar(Professor p) {
-        if (alterando == null) {
-            repositorio.inserir(p);
-        } else {
-            repositorio.alterar(p);
-        }
+        // repositorio buscar professor pelo login
+        //recupera professor
+        // if (retrnou null, pode cadastrar)
+        repositorio.inserir(p);
         return "CadastrarTurma.xhtml";
     }
-    
-     public String getTextoDoBotao(){
-        if(alterando==null){
-            return "cadastrar";
-        }else{
-            return "alterar";
-        }
-    }
-     
+
     public void remover(Professor p) {
         repositorio.excluir(p);
     }
