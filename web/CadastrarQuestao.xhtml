@@ -16,7 +16,7 @@
                     <p:inputText value="#{questaoBuilder.enunciado}"/>
                     <h:outputText value="Pontuaçao"/>
                     <p:inputText value="#{questaoBuilder.pontuacao}"/>
-                    <p:commandButton value="#{controladorQuestao.textoDoBotao}" action="#{controladorQuestao.adicionar(questaoBuilder.construir())}"/>
+                    <p:commandButton value="Cadastrar" action="#{controladorQuestao.adicionar(questaoBuilder.construir())}"/>
                 </p:panelGrid>
                 
             </p:fieldset>

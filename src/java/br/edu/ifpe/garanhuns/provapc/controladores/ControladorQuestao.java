@@ -10,51 +10,42 @@ import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+
 /**
  *
  * @author Lucinaldo Melquíades Jr.
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class ControladorQuestao {
+
     private Questao alterando = null;
     private Questao selected = null;
 
     RepositorioGenerico<Questao, Integer> repositorio = null;
-    
+
     public ControladorQuestao() {
-        this.repositorio= FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.questao, FabricaRepositorios.BD);
+        this.repositorio = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.questao, FabricaRepositorios.BD);
     }
+
     public void remover() {
         remover(selected);
     }
-    
+
     public String adicionar(Questao q) {
-            if(alterando==null){
-                 repositorio.inserir(q);
-            }else{
-                repositorio.alterar(q);
-            }
-                    
+        repositorio.inserir(q);
         return "ApresentarQuestao.xhtml";
     }
 
-    public String getTextoDoBotao(){
-        if(alterando==null){
-            return "cadastrar";
-        }else{
-            return "alterar";
-        }
-    }
     public void remover(Questao q) {
         repositorio.excluir(q);
-        }
-    
+    }
+
     public void alterar(Questao q) {
         repositorio.alterar(q);
-        }
-
+    }
 
     public String alterar() {
         this.alterando = selected;
@@ -68,7 +59,7 @@ public class ControladorQuestao {
     public List<Questao> recuperarTodos() {
         return repositorio.recuperarTodos();
     }
-    
+
     public Questao getSelected() {
         return selected;
     }
