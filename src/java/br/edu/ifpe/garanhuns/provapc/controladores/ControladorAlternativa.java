@@ -34,11 +34,7 @@ public class ControladorAlternativa {
     }
     
      public String adicionar(Alternativa a) {
-         if(alterando==null){
                  repositorio.inserir(a);
-            }else{
-                repositorio.alterar(a);
-            }
          return "ApresentarAlternativa.xhtml";
     }
      
@@ -80,11 +76,4 @@ public class ControladorAlternativa {
         this.alterando = alterando;
     }
     
-    public String getTextoDoBotao(){
-        if(alterando==null){
-            return "cadastrar";
-        }else{
-            return "alterar";
-        }
-    }
 }
