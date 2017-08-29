@@ -16,8 +16,8 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class TurmaBuilder {
-    private long id;
     private String turma;
+    private long id;
 
     public TurmaBuilder() {
     }

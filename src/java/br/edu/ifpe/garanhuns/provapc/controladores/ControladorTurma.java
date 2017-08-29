@@ -27,6 +27,7 @@ public class ControladorTurma {
     public ControladorTurma(){
         this.repositorio= FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.turma, FabricaRepositorios.BD);
     }
+    
     public String adicionar(Turma t){
         repositorio.inserir(t);
         return "ApresentarTurma.xhtml";
