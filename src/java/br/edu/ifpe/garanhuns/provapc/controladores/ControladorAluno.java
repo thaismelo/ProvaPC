@@ -20,48 +20,38 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class ControladorAluno {
+
     private Aluno alterando = null;
     private Aluno selected = null;
 
     RepositorioGenerico<Aluno, Integer> repositorio = null;
-    
-    
+
     public ControladorAluno() {
         this.repositorio = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.aluno, FabricaRepositorios.BD);
     }
-    
+
     public void remover() {
         remover(selected);
     }
-    
+
     public String adicionar(Aluno a) {
-           if(alterando==null){
-                 repositorio.inserir(a);
-            }else{
-                repositorio.alterar(a);
-            }
+        repositorio.inserir(a);
         return "ApresentarAluno.xhtml";
     }
-    
-    public String getTextoDoBotao(){
-        if(alterando==null){
-            return "cadastrar";
-        }else{
-            return "alterar";
-        }
-    }
+
     public void remover(Aluno a) {
         repositorio.excluir(a);
     }
-    
+
     public void alterar(Aluno a) {
         repositorio.alterar(a);
     }
-    
+
     public String alterar() {
         this.alterando = selected;
         return "CadastrarAluno.xhtml";
     }
+
     public Aluno recupearar(int id) {
         return repositorio.recuperar(id);
     }
@@ -69,7 +59,7 @@ public class ControladorAluno {
     public List<Aluno> recuperarTodos() {
         return repositorio.recuperarTodos();
     }
-    
+
     public Aluno getSelected() {
         return selected;
     }
@@ -85,9 +75,9 @@ public class ControladorAluno {
     public void setAlterando(Aluno alterando) {
         this.alterando = alterando;
     }
-    
-   // public boolean validandoLogin(String logEsperado){
-     //  List login = DaoManagerHiber.getInstance().recoverSQL("select COUNT(login) from aluno where login= 'logEsperado'");
-      // return COUNT>0;
-   // }
+
+    // public boolean validandoLogin(String logEsperado){
+    //  List login = DaoManagerHiber.getInstance().recoverSQL("select COUNT(login) from aluno where login= 'logEsperado'");
+    // return COUNT>0;
+    // }
 }
