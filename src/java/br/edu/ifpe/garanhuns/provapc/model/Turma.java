@@ -20,11 +20,12 @@ import javax.persistence.Table;
 @Table
 public class Turma {
     
-    @Id
-    @GeneratedValue
-    long id;
+   
     @Column
     private String turma;
+    @Id
+    @GeneratedValue
+    private long id;
 
     public Turma(long id, String turma) {
         this.id=id;
@@ -41,6 +42,14 @@ public class Turma {
 
     public Turma(String turma) {
         this.turma = turma;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
     
