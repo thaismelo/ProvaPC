@@ -53,17 +53,13 @@ public class ControladorProva {
         return "ApresentarProva.xhtml";
     }
 
-    public String alterar() {
-        this.alterando = selected;
-        return "CadastrarProva.xhtml";
-    }
-
     public void remover(Prova p) {
         repositorio.excluir(p);
     }
 
-    public void alterar(Prova p) {
+    public String alterar(Prova p) {
         repositorio.alterar(p);
+        return "CrudProva.xhtml";
     }
 
     public Prova recupearar(int id) {
