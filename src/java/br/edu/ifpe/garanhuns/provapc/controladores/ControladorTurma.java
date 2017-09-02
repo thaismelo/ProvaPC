@@ -16,7 +16,7 @@ import javax.faces.bean.SessionScoped;
  *
  * @author Thais
  */
-@ManagedBean
+@ManagedBean(eager = true)
 @SessionScoped
 public class ControladorTurma {
     private Turma selected =null;
@@ -40,8 +40,8 @@ public class ControladorTurma {
         repositorio.alterar(t);
     }
     
-    public void recuperar(int id){
-        repositorio.recuperar(id);
+    public Turma recuperar(int id){
+        return repositorio.recuperar(id);
     }
     
     public List<Turma> recuperarTodos(){
