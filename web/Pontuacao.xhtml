@@ -11,6 +11,8 @@
         <h:form id="Pontuaçao">
              <ui:include src="Menu.xhtml"/>
              <h1>Sua nota é:</h1> <h:outputText value="#{controladorRespostaQuestao.respostaProva.resultado()}"/>
+             <p:commandButton value="Seu Gabarito" action="Gabarito.xhtml"/>
+        
         </h:form>
         
     </h:body>
