@@ -24,7 +24,7 @@ public class Aluno {
     @Id
     @GeneratedValue
     private long id;
-    @Column
+    @Column 
     private String login;
     @Column
     private String nome;
