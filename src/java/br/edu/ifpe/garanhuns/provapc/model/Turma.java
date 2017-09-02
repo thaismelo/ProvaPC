@@ -25,9 +25,9 @@ public class Turma {
     private String turma;
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
 
-    public Turma(long id, String turma) {
+    public Turma(int id, String turma) {
         this.id=id;
         this.turma=turma;
     }
@@ -44,11 +44,11 @@ public class Turma {
         this.turma = turma;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -63,12 +63,13 @@ public class Turma {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 73 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 73 * hash + Objects.hashCode(this.turma);
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.turma);
+        hash = 67 * hash + this.id;
         return hash;
     }
 
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
