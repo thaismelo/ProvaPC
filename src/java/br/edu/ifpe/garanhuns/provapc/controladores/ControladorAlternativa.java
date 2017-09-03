@@ -38,18 +38,20 @@ public class ControladorAlternativa {
          return "ApresentarAlternativa.xhtml";
     }
      
-     public String alterar() {
-        this.alterando = selected;
-        return "CadastrarAlternativa.xhtml";
-    }
+    //public String alterar() {
+     //   this.alterando = selected;
+    //    return "CadastrarAlternativa.xhtml";
+    //}
     
     
     public void remover(Alternativa a) {
         repositorio.excluir(a);
     }
 
-    public void alterar(Alternativa a) {
+    
+    public String alterar(Alternativa a) {
         repositorio.alterar(a);
+        return "ApresentarAlternativa.xhtml";
     }
 
     public Alternativa recuperar(int id) {
