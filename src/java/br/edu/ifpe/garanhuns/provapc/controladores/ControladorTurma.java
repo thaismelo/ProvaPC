@@ -36,8 +36,9 @@ public class ControladorTurma {
         repositorio.excluir(t);
     }
     
-    public void alterar(Turma t){
+    public String alterar(Turma t){
         repositorio.alterar(t);
+        return "ApresentarTurma.xhtml";
     }
     
     public Turma recuperar(int id){
@@ -68,9 +69,9 @@ public class ControladorTurma {
         remover(selected);
     }
     
-    public String alterar(){
-        this.alterando=selected;
-        return "CadastrarTurma.xhtml";
-    }
+    //public String alterar(){
+    //    this.alterando=selected;
+    //    return "CadastrarTurma.xhtml";
+    //}
     
 }
