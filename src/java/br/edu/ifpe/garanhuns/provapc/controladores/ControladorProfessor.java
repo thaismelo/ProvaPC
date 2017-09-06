@@ -6,11 +6,14 @@
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
 import br.edu.ifpe.garanhuns.provapc.model.Professor;
+import br.edu.ifpe.garanhuns.provapc.model.dao.DaoManagerHiber;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -34,12 +37,15 @@ public class ControladorProfessor {
     }
 
     public String adicionar(Professor p) {
+        if((Professor) DaoManagerHiber.getInstance().recover("from Professor where login=" + p.getLogin()).get((0))==null){
+            repositorio.inserir(p);
+            return "CadastrarTurma.xhtml";
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Login já existe. Tente outro."));
+            return "CadastrarProfessor.xhtml";
+        }
         
-        // repositorio buscar professor pelo login
-        //recupera professor
-        // if (retrnou null, pode cadastrar)
-        repositorio.inserir(p);
-        return "CadastrarTurma.xhtml";
+        
     }
 
     public void remover(Professor p) {
