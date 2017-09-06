@@ -39,7 +39,8 @@ public class Convertor implements Converter{
     @Override
     public String getAsString(FacesContext fc, UIComponent uic,Object turma) {
         if(turma != null) {
-            return String.valueOf(((Turma) turma).getId());
+            String resultado = ((Turma)turma).getTurma();
+            return  resultado;
         }
         else {
             return null;

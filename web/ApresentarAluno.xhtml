@@ -34,7 +34,9 @@
                     <h:outputText value="#{aluno.senha}"/>
                 </p:column>
                 <p:column headerText="Turma">
-                    <h:outputText value="#{aluno.turma}"/>
+                    <h:outputText value="#{aluno.turma}">
+                        <f:converter converterId="convertor"/>
+                    </h:outputText>
                 </p:column>
                 <f:facet name="footer">
                     <p:commandButton value="Adicionar Aluno" action="CadastrarAluno.xhtml"/>
