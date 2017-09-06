@@ -43,14 +43,15 @@ public class ControladorAluno {
         repositorio.excluir(a);
     }
 
-    public void alterar(Aluno a) {
+    public String alterar(Aluno a) {
         repositorio.alterar(a);
+        return "ApresentarAluno.xhtml";
     }
 
-    public String alterar() {
-        this.alterando = selected;
-        return "CadastrarAluno.xhtml";
-    }
+    //public String alterar() {
+      //  this.alterando = selected;
+        //return "CadastrarAluno.xhtml";
+    //}
 
     public Aluno recupearar(int id) {
         return repositorio.recuperar(id);

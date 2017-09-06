@@ -46,14 +46,15 @@ public class ControladorProfessor {
         repositorio.excluir(p);
     }
 
-    public void alterar(Professor p) {
+    public String alterar(Professor p) {
         repositorio.alterar(p);
+        return "ApresentarProfessor.xhtml";
     }
 
-    public String alterar() {
-        this.alterando = selected;
-        return "CadastrarProfessor.xhtml";
-    }
+    //public String alterar() {
+    //    this.alterando = selected;
+    //    return "CadastrarProfessor.xhtml";
+    //}
 
     public Professor recupearar(int id) {
         return repositorio.recuperar(id);
