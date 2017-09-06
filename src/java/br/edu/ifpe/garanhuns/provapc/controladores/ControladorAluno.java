@@ -10,8 +10,10 @@ import br.edu.ifpe.garanhuns.provapc.model.dao.DaoManagerHiber;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -35,8 +37,14 @@ public class ControladorAluno {
     }
 
     public String adicionar(Aluno a) {
-        repositorio.inserir(a);
-        return "ApresentarAluno.xhtml";
+        if((Aluno) DaoManagerHiber.getInstance().recover("from Aluno where login=" + a.getLogin()).get((0))==null){
+            repositorio.inserir(a);
+            return "ApresentarAluno.xhtml";
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Login já existe. Tente outro."));
+            return "CadastrarAluno.xhtml";
+        }
+         
     }
 
     public void remover(Aluno a) {
