@@ -26,7 +26,7 @@ public class Aluno {
     private long id;
     @Column 
     private String login;
-    @Column
+    @Column 
     private String nome;
     @Column
     private String senha;

@@ -61,13 +61,13 @@ public class Turma {
         return  turma;
     }
 
-    @Override
+    /*@Override
     public int hashCode() {
         int hash = 3;
         hash = 67 * hash + Objects.hashCode(this.turma);
         hash = 67 * hash + this.id;
         return hash;
-    }
+    }*/
 
     
     @Override
