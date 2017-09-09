@@ -1,4 +1,4 @@
-package br.edu.ifpe.garanhuns.provapc.model.dao;
+package java.br.edu.ifpe.garanhuns.provapc.model.dao;
 
 /*
  * To change this template, choose Tools | Templates

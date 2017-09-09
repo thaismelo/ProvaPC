@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpe.garanhuns.provapc.controladores;
+package java.br.edu.ifpe.garanhuns.provapc.controladores;
 
 import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
