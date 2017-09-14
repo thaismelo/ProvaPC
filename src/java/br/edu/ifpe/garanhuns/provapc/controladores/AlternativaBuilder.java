@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java.br.edu.ifpe.garanhuns.provapc.controladores;
-import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
+package br.edu.ifpe.garanhuns.provapc.controladores;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
+import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
 
 /**
  *

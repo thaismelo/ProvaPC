@@ -5,8 +5,9 @@
  */
 package br.edu.ifpe.garanhuns.provapc.model.dao;
 
-import br.edu.ifpe.garanhuns.provapc.model.Turma;
 import java.util.List;
+
+import br.edu.ifpe.garanhuns.provapc.model.Turma;
 
 /**
  *

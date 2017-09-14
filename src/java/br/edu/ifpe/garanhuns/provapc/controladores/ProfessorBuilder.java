@@ -5,11 +5,11 @@
  */
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
-import br.edu.ifpe.garanhuns.provapc.controladores.ControladorProfessor;
-import br.edu.ifpe.garanhuns.provapc.model.Professor;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+
+import br.edu.ifpe.garanhuns.provapc.model.Professor;
 
 /**
  *

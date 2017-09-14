@@ -5,12 +5,14 @@
  */
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
-import br.edu.ifpe.garanhuns.provapc.model.Prova;
-import br.edu.ifpe.garanhuns.provapc.model.Questao;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
+import br.edu.ifpe.garanhuns.provapc.model.Prova;
+import br.edu.ifpe.garanhuns.provapc.model.Questao;
 
 /**
  *

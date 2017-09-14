@@ -5,6 +5,8 @@
  */
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
+import java.util.List;
+
 import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
 import br.edu.ifpe.garanhuns.provapc.model.Aluno;
 import br.edu.ifpe.garanhuns.provapc.model.Professor;
@@ -14,7 +16,6 @@ import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
 import br.edu.ifpe.garanhuns.provapc.model.Turma;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
-import java.util.List;
 
 /**
  *

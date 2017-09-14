@@ -5,6 +5,14 @@
  */
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+
 import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
 import br.edu.ifpe.garanhuns.provapc.model.Prova;
 import br.edu.ifpe.garanhuns.provapc.model.Questao;
@@ -12,12 +20,6 @@ import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
 import br.edu.ifpe.garanhuns.provapc.model.RespostaQuestao;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
 
 /**
  *

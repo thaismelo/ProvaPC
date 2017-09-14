@@ -1,18 +1,16 @@
-package java.br.edu.ifpe.garanhuns.provapc.model.dao;
+package br.edu.ifpe.garanhuns.provapc.model.dao;
 
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 import java.util.List;
-import org.hibernate.Criteria;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.criterion.Example;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 /**

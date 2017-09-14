@@ -53,8 +53,8 @@ public class QuestaoBuilder {
         this.enunciado = enunciado;
     }
 
-    public void setPontuacao(double pontuaçao) {
-        this.pontuacao = pontuaçao;
+    public void setPontuacao(double pontuacao) {
+        this.pontuacao = pontuacao;
     }
 
    

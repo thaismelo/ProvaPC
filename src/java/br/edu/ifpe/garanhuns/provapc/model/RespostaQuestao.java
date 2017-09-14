@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package br.edu.ifpe.garanhuns.provapc.model;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;

@@ -6,11 +6,12 @@
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import br.edu.ifpe.garanhuns.provapc.model.Prova;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 
 /**

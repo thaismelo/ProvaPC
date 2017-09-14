@@ -5,16 +5,14 @@
  */
 package br.edu.ifpe.garanhuns.provapc.controladores;
 
-import br.edu.ifpe.garanhuns.provapc.model.Aluno;
-import br.edu.ifpe.garanhuns.provapc.model.Prova;
-import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
-import br.edu.ifpe.garanhuns.provapc.model.dao.DaoManagerHiber;
-import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
-import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.hibernate.Hibernate;
+
+import br.edu.ifpe.garanhuns.provapc.model.Prova;
+import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
+import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
 
 /**
  *

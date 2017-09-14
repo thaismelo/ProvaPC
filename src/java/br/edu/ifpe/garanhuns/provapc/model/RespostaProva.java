@@ -71,7 +71,7 @@ public class RespostaProva {
         this.prova = prova;
     }
 
-    public double calculaPontuaçao() {
+    public double calculaPontuacao() {
         return 1;
     }
 

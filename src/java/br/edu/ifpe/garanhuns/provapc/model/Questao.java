@@ -8,6 +8,7 @@ package br.edu.ifpe.garanhuns.provapc.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -83,8 +84,8 @@ public class Questao{
         this.enunciado = enunciado;
     }
 
-    public void setPontuacao(double pontuaçao) {
-        this.pontuacao = pontuaçao;
+    public void setPontuacao(double pontuacao) {
+        this.pontuacao = pontuacao;
     }
 
     public Prova getProva() {
