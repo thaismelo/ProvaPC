@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.edu.ifpe.garanhuns.provapc.model.dao;
+
+import java.util.List;
+
+import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
+
+/**
+ *
+ * @author Thais
+ */
+public class RepositorioAlternativa implements RepositorioGenerico<Alternativa, Integer> {
+
+    
+    public void inserir(Alternativa t) {
+        DaoManagerHiber.getInstance().persist(t);
+    }
+
+    
+    public void excluir(Alternativa t) {
+        DaoManagerHiber.getInstance().delete(t);
+    }
+
+    
+    public void alterar(Alternativa t) {
+        DaoManagerHiber.getInstance().update(t);
+    }
+
+    
+    public Alternativa recuperar(Integer g) {
+        try {
+            return (Alternativa) DaoManagerHiber.getInstance().recover("from Alternativa where id=" + g).get(0);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+
+        }
+    }
+
+    
+    public List<Alternativa> recuperarTodos() {
+        return DaoManagerHiber.getInstance().recover("from Alternativa");
+    }
+
+}
