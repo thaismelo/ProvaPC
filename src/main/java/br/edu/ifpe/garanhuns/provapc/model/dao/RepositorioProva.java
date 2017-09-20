@@ -14,21 +14,22 @@ import br.edu.ifpe.garanhuns.provapc.model.Prova;
  * @author Thais
  */
 public class RepositorioProva implements RepositorioGenerico<Prova, Integer>{
-        
+      
+	@Override
     public void inserir(Prova t) {
         DaoManagerHiber.getInstance().persist(t);
     }
-
+	@Override
     
     public void excluir(Prova t) {
         DaoManagerHiber.getInstance().delete(t);
     }
-
+	@Override
     
     public void alterar(Prova t) {
         DaoManagerHiber.getInstance().update(t);
     }
-
+	@Override
     
     public Prova recuperar(Integer g) {
         try {
@@ -37,7 +38,7 @@ public class RepositorioProva implements RepositorioGenerico<Prova, Integer>{
             return null;
         }
     }
-
+	@Override
 
         public List<Prova> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from Prova");

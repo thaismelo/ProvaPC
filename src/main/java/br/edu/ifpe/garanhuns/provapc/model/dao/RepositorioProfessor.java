@@ -14,21 +14,22 @@ import br.edu.ifpe.garanhuns.provapc.model.Professor;
  * @author Thais
  */
 public class RepositorioProfessor implements RepositorioGenerico<Professor, Integer>{
-        
+     
+	@Override
     public void inserir(Professor t) {
         DaoManagerHiber.getInstance().persist(t);
     }
-
+	@Override
     
     public void excluir(Professor t) {
         DaoManagerHiber.getInstance().delete(t);
     }
-
+	@Override
     
     public void alterar(Professor t) {
         DaoManagerHiber.getInstance().update(t);
     }
-
+	@Override
     
     public Professor recuperar(Integer g) {
         try {
@@ -38,7 +39,7 @@ public class RepositorioProfessor implements RepositorioGenerico<Professor, Inte
         }
     }
 
-
+	@Override
         public List<Professor> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from Professor");
     }

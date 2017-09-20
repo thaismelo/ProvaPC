@@ -15,21 +15,21 @@ import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
  */
 public class RepositorioRespostaProva implements RepositorioGenerico<RespostaProva, Integer>{
 
-    
+	@Override
     public void inserir(RespostaProva t) {
         DaoManagerHiber.getInstance().persist(t);
     }
-
+	@Override
     
     public void excluir(RespostaProva t) {
         DaoManagerHiber.getInstance().delete(t);
     }
-
+	@Override
     
     public void alterar(RespostaProva t) {
         DaoManagerHiber.getInstance().update(t);
     }
-
+	@Override
     
     public RespostaProva recuperar(Integer g) {
         try{
@@ -39,7 +39,7 @@ public class RepositorioRespostaProva implements RepositorioGenerico<RespostaPro
         }
         }
 
-    
+	@Override
     public List<RespostaProva> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from RespostaProva");
     }

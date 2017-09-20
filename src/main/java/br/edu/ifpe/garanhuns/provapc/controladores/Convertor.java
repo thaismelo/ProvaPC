@@ -21,8 +21,8 @@ import br.edu.ifpe.garanhuns.provapc.model.Turma;
 @FacesConverter("convertor")
 public class Convertor implements Converter{
 
-    
-    public Turma getAsObject(FacesContext fc, UIComponent uic, String value) {
+	 @Override
+    public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
             try {
                ControladorTurma service = (ControladorTurma) fc.getExternalContext().getApplicationMap().get("ControladorTurma");
@@ -35,10 +35,11 @@ public class Convertor implements Converter{
             return null;
         }
     }
-
+    
+    @Override
     public String getAsString(FacesContext fc, UIComponent uic,Object turma) {
         if(turma != null) {
-            String resultado = ((Turma)turma).getTurma();
+            String resultado =  Integer.toString(((Turma) turma).getId());
             return  resultado;
         }
         else {

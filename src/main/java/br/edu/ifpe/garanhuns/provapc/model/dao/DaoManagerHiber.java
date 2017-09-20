@@ -150,8 +150,7 @@ public class DaoManagerHiber{
     }
 
     public static void main(String args[]) {
-        SchemaExport se = new SchemaExport(new AnnotationConfiguration().configure());
-        se.create(true, true);
+        DaoManagerHiber.getInstance();
     }
 
 }

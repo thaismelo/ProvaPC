@@ -15,21 +15,21 @@ import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
  */
 public class RepositorioAlternativa implements RepositorioGenerico<Alternativa, Integer> {
 
-    
+	@Override
     public void inserir(Alternativa t) {
         DaoManagerHiber.getInstance().persist(t);
     }
-
+	@Override
     
     public void excluir(Alternativa t) {
         DaoManagerHiber.getInstance().delete(t);
     }
-
+	@Override
     
     public void alterar(Alternativa t) {
         DaoManagerHiber.getInstance().update(t);
     }
-
+	@Override
     
     public Alternativa recuperar(Integer g) {
         try {
@@ -39,7 +39,7 @@ public class RepositorioAlternativa implements RepositorioGenerico<Alternativa, 
 
         }
     }
-
+	@Override
     
     public List<Alternativa> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from Alternativa");

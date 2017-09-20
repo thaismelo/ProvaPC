@@ -15,21 +15,22 @@ import br.edu.ifpe.garanhuns.provapc.model.Questao;
  */
 public class RepositorioQuestao implements RepositorioGenerico<Questao, Integer> {
 
+	@Override
     
     public void inserir(Questao t) {
         DaoManagerHiber.getInstance().persist(t);
     }
-
+	@Override
     
     public void excluir(Questao t) {
         DaoManagerHiber.getInstance().delete(t);
     }
-
+	@Override
     
     public void alterar(Questao t) {
         DaoManagerHiber.getInstance().update(t);
     }
-
+	@Override
     
     public Questao recuperar(Integer g) {
         try {
@@ -38,7 +39,7 @@ public class RepositorioQuestao implements RepositorioGenerico<Questao, Integer>
             return null;
         }
     }
-
+	@Override
 
         public List<Questao> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from Questao");

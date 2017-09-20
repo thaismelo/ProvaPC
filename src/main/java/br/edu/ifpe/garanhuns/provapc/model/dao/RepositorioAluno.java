@@ -20,16 +20,16 @@ public class RepositorioAluno implements RepositorioGenerico<Aluno, Integer>{
         DaoManagerHiber.getInstance().persist(t);
     }
 
-    
+	@Override
     public void excluir(Aluno t) {
         DaoManagerHiber.getInstance().delete(t);
     }
 
-    
+	@Override
     public void alterar(Aluno t) {
         DaoManagerHiber.getInstance().update(t);
     }
-
+	@Override
     
     public Aluno recuperar(Integer g) {
         try {
@@ -39,7 +39,7 @@ public class RepositorioAluno implements RepositorioGenerico<Aluno, Integer>{
         }
     }
 
-
+	@Override
         public List<Aluno> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from Aluno");
     }

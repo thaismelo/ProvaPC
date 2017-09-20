@@ -15,21 +15,21 @@ import br.edu.ifpe.garanhuns.provapc.model.Turma;
  */
 public class RepositorioTurma implements RepositorioGenerico<Turma, Integer>{
 
-    
+	@Override
     public void inserir(Turma t) {
         DaoManagerHiber.getInstance().persist(t);
     }
 
-    
+	@Override
     public void excluir(Turma t) {
         DaoManagerHiber.getInstance().delete(t);
     }
-
+	@Override
     
     public void alterar(Turma t) {
         DaoManagerHiber.getInstance().update(t);
     }
-
+	@Override
     public Turma recuperar(Integer g) {
         try {
             return (Turma) DaoManagerHiber.getInstance().recover("from Turma where id=" + g).get(0);
@@ -37,7 +37,7 @@ public class RepositorioTurma implements RepositorioGenerico<Turma, Integer>{
             return null;
         }
     }
-
+	@Override
     
     public List<Turma> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from Turma");
