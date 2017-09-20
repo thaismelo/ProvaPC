@@ -18,7 +18,11 @@
                     <p:inputText value="#{alunoBuilder.nome}"/>
                     <h:outputText value="Turma"/>
                     <p:selectOneListbox id="turma" value="#{alunoBuilder.turma}" converter="convertor" var="t" filter="true" filterMatchMode="contains">
-                        <f:selectItems var="turmas" itemLabel="#{turmas.turma}"  itemValue="#{turmas.id}" value="#{controladorTurma.recuperarTodos()}"/>
+                        <f:selectItems var="turmas" itemLabel="#{turmas.turma}"  itemValue="#{turmas}" value="#{controladorTurma.recuperarTodos()}"/>
+                        
+                        <p:column>
+               			  <h:outputText value="#{t.turma}" />
+            			</p:column>
                     </p:selectOneListbox>
                     <h:outputText value="Login"/>
                     <p:keyboard value="#{alunoBuilder.login}"/>

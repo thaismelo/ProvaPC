@@ -39,7 +39,7 @@ public class ControladorProfessor {
     }
 
     public String adicionar(Professor p) {
-        if((Professor) DaoManagerHiber.getInstance().recover("from Professor where login=" + p.getLogin()).get((0))==null){
+        if(DaoManagerHiber.getInstance().recover("from Professor where login='" + p.getLogin()+"'").size()==0){
             repositorio.inserir(p);
             return "CadastrarTurma.xhtml";
         }else{

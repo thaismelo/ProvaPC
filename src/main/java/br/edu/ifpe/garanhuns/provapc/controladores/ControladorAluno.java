@@ -39,7 +39,7 @@ public class ControladorAluno {
     }
 
     public String adicionar(Aluno a) {
-        if((Aluno) DaoManagerHiber.getInstance().recover("from Aluno where login=" + a.getLogin()).get((0))==null){
+        if(DaoManagerHiber.getInstance().recover("from Aluno where login='" + a.getLogin()+"'").size()==0){
             repositorio.inserir(a);
             return "ApresentarAluno.xhtml";
         }else{
