@@ -25,7 +25,7 @@ public class Convertor implements Converter{
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
             try {
-               ControladorTurma service = (ControladorTurma) fc.getExternalContext().getApplicationMap().get("ControladorTurma");
+               ControladorTurma service = (ControladorTurma) fc.getExternalContext().getSessionMap().get("controladorTurma");
                 return service.recuperar(Integer.parseInt(value));
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
