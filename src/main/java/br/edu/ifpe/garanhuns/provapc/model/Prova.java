@@ -108,7 +108,7 @@ public class Prova {
         this.setTitulo(t.getTitulo());
     }
 
-    public Prova copiar() {
+    public Prova copiar() { //cria uma nova prova com uma questao ///  copia e ele cria uma nova prova// compara as duas provas para ver se elas sao iguais
         Prova p = new Prova(id, titulo);
         for(Questao q : questoes) {
             p.adicionarQuestao(q.copiar());
