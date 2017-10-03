@@ -10,8 +10,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -25,7 +24,7 @@ public class DaoManagerHiber{
 
     private DaoManagerHiber() {
         try {
-            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+            sessionFactory = new Configuration().configure().buildSessionFactory();
             s = sessionFactory.openSession();
         } catch (Throwable th) {
             System.err.println("Enitial SessionFactory creation failed" + th);
