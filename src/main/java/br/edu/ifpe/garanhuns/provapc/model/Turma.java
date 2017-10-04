@@ -71,17 +71,14 @@ public class Turma {
     
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
+    	boolean ret = false;
         final Turma other = (Turma) obj;
-        return true;
+        
+        if (this.turma.equals(other.turma)) {
+        	ret = true;
+        }
+        
+        return ret;
     }
     
     
