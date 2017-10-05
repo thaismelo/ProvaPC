@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
+
 public class RepositorioGenericoTest<T, G> {
 
 	public RepositorioGenerico<T, Integer> repositorio;
@@ -31,6 +33,10 @@ public class RepositorioGenericoTest<T, G> {
 				assertEquals(t2, tipo);
 			}
 		}
+		
+		
+		
+	
 	}
 
 	// Tenta recuperar por id o objeto adicionado

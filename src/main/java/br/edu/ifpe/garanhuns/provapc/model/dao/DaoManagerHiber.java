@@ -44,6 +44,7 @@ public class DaoManagerHiber{
             s = sessionFactory.openSession();
             tr = s.beginTransaction();
             s.save(o);
+           
             tr.commit();
         } catch (RuntimeException e) {
             if (tr != null) tr.rollback();
