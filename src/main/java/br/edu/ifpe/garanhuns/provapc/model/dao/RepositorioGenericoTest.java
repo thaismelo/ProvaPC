@@ -1,25 +1,24 @@
 package br.edu.ifpe.garanhuns.provapc.model.dao;
 
 import static org.junit.Assert.*;
-
 import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+
+
+
 
 public class RepositorioGenericoTest<T, G> {
 
 	public RepositorioGenerico<T, Integer> repositorio;
 	public T tipo = null;
 	public Integer tipoDoID;
+	
 
 	// Exige uma nova prova.
 	public void testAdicionar() {
+		int quantidadeDeItens = repositorio.recuperarTodos().size();
 		repositorio.inserir(tipo);
-		//preciso ver se ele ta ali
+		assertEquals(quantidadeDeItens+1, repositorio.recuperarTodos().size());
 	}
 
 	// Recuperar Todos depois de Adicionar
@@ -29,14 +28,14 @@ public class RepositorioGenericoTest<T, G> {
 		for (T t2 : recuperar) {
 			if (tipo.equals(t2)) {
 				assertEquals(t2, tipo);
+				break;
 			}
 		}
 	}
 
 	// Tenta recuperar por id o objeto adicionado
-	public void testPosAdicionarRecuperarId() {
-        assertNotNull(tipo); // ver se ele é nula ou nao
-        int id = 67;
+	public void testRecuperarId() {
+        int id = Integer.parseInt("SELECT LA");
         T t2 = repositorio.recuperar(id);
         assertNotNull(t2);
         assertEquals(t2, tipo);
