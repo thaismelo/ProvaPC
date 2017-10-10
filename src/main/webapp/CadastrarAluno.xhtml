@@ -32,7 +32,7 @@
 				<p:keyboard value="#{alunoBuilder.login}" />
 				<h:outputText value="Senha" />
 				<p:password value="#{alunoBuilder.senha}" feedback="true"
-					required="true">
+					required="true" converterMessage="ERRO: O mínimo é 6 e o máximo é 10"> 
 					<f:validateLength minimum="6" maximum="10" />
 				</p:password>
 				<p:commandButton value="Cadastrar"
