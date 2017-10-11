@@ -79,9 +79,7 @@ public class Prova {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
+        
         if (obj == null) {
             return false;
         }
@@ -94,6 +92,8 @@ public class Prova {
         }
         if (!Objects.equals(this.questoes, other.questoes)) {
             return false;
+        }if (this == obj) {
+            return true;
         }
         return true;
     }
