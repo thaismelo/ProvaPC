@@ -1,0 +1,6 @@
+.professor {
+    background-image: url(../resources/images/professor.png)!important;
+	width: 16px;height: 16px;
+	float:left;
+	margin-right: 8px;
+}

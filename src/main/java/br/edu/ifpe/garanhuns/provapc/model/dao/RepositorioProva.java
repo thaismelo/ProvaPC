@@ -13,36 +13,39 @@ import br.edu.ifpe.garanhuns.provapc.model.Prova;
  *
  * @author Thais
  */
-public class RepositorioProva implements RepositorioGenerico<Prova, Integer>{
-      
+public class RepositorioProva implements RepositorioGenerico<Prova, Integer> {
+
 	@Override
-    public void inserir(Prova t) {
-        DaoManagerHiber.getInstance().persist(t);
-    }
-	@Override
-    
-    public void excluir(Prova t) {
-        DaoManagerHiber.getInstance().delete(t);
-    }
-	@Override
-    
-    public void alterar(Prova t) {
-        DaoManagerHiber.getInstance().update(t);
-    }
-	@Override
-    
-    public Prova recuperar(Integer g) {
-        try {
-            return (Prova) DaoManagerHiber.getInstance().recover("from Prova where id=" + g).get(0);
-        } catch (IndexOutOfBoundsException e) {
-            return null;
-        }
-    }
+	public void inserir(Prova t) {
+		DaoManagerHiber.getInstance().persist(t);
+	}
+
 	@Override
 
-        public List<Prova> recuperarTodos() {
-        return DaoManagerHiber.getInstance().recover("from Prova");
-    }
-    
-    
+	public void excluir(Prova t) {
+		DaoManagerHiber.getInstance().delete(t);
+	}
+
+	@Override
+
+	public void alterar(Prova t) {
+		DaoManagerHiber.getInstance().update(t);
+	}
+
+	@Override
+
+	public Prova recuperar(Integer g) {
+		try {
+			return (Prova) DaoManagerHiber.getInstance().recover("from Prova where id=" + g).get(0);
+		} catch (IndexOutOfBoundsException e) {
+			return null;
+		}
+	}
+
+	@Override
+
+	public List<Prova> recuperarTodos() {
+		return DaoManagerHiber.getInstance().recover("from Prova");
+	}
+
 }

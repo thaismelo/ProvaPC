@@ -10,10 +10,23 @@
     </h:head>
     <h:body>
         <h:form id="MyForm">
+        	<p:messages id="mens" showDetail="true" autoUpdate="true"/>
+        	
             <ui:include src="Menu.xhtml"/>
             <p:panelGrid columns="2">
                 <h:outputText value="Título"/>
                 <p:inputText value="#{controladorGeral.provaBuilder.titulo}"/>
+                <h:outputText value="Turma" />
+				<p:selectOneListbox id="turma" value="#{controladorGeral.provaBuilder.turma}"
+					converter="convertor" var="t" filter="true"
+					filterMatchMode="contains" requiredMessage="Voce não selecionou a turma.">
+					<f:selectItems var="turmas" itemLabel="#{turmas.turma}"
+						itemValue="#{turmas}" value="#{controladorTurma.recuperarTodos()}" />
+
+					<p:column>
+						<h:outputText value="#{t.turma}" />
+					</p:column>
+				</p:selectOneListbox>
             </p:panelGrid>
 
             <p:accordionPanel id="AccordionQuestoes" value="#{controladorGeral.provaBuilder.questoes}" var="questao">
@@ -48,7 +61,7 @@
             </p:accordionPanel>
             <br></br>
             <p:commandButton value="Adicionar Questão" action="#{controladorGeral.adicionarQuestao()}" update=":MyForm:AccordionQuestoes"/>
-            <p:commandButton value="Finalizar Prova" action="#{controladorGeral.finalizarProva()}"/>
+            <p:commandButton value="Finalizar Prova" action="#{controladorGeral.finalizarProva()}" update="mens"/>
         </h:form>
     </h:body>
 </html>

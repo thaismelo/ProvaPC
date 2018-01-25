@@ -7,6 +7,11 @@ package br.edu.ifpe.garanhuns.provapc.model.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import br.edu.ifpe.garanhuns.provapc.model.Professor;
 
 /**
@@ -43,6 +48,7 @@ public class RepositorioProfessor implements RepositorioGenerico<Professor, Inte
         public List<Professor> recuperarTodos() {
         return DaoManagerHiber.getInstance().recover("from Professor");
     }
+	
     
     
 }

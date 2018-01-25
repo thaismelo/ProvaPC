@@ -14,6 +14,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
 import br.edu.ifpe.garanhuns.provapc.model.Alternativa;
+import br.edu.ifpe.garanhuns.provapc.model.Aluno;
+import br.edu.ifpe.garanhuns.provapc.model.Professor;
 import br.edu.ifpe.garanhuns.provapc.model.Prova;
 import br.edu.ifpe.garanhuns.provapc.model.Questao;
 import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
@@ -70,7 +72,9 @@ public class ControladorResposta {
             respostaProva.adicionar(q);
         }
         this.repositorio = FabricaRepositorios.fabricarRepositorio(FabricaRepositorios.respostaProva, FabricaRepositorios.BD);
+        
         repositorio.inserir(respostaProva);
+        prova.adicionarNota(respostaProva);
         return "CrudProva.xhtml";
     }
      
