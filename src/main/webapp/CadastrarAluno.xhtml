@@ -4,42 +4,50 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-	<title>Cadastro Aluno</title>
-</h:head>
-<h:body>
-	<h:form id="FormQuest">
-		<p:messages id="mensagens" showDetail="true" autoUpdate="true"
-			closable="true" />
-		<p:fieldset legend="Cadastrar Aluno">
-			<p:panelGrid columns="2">
-				<h:outputText value="Nome Completo" />
-				<p:inputText value="#{alunoBuilder.nome}" />
-				<h:outputText value="Turma" />
-				<p:selectOneListbox id="turma" value="#{alunoBuilder.turma}"
-					converter="convertor" var="t" filter="true"
-					filterMatchMode="contains">
-					<f:selectItems var="turmas" itemLabel="#{turmas.turma}"
-						itemValue="#{turmas}" value="#{controladorTurma.recuperarTodos()}" />
-
-					<p:column>
-						<h:outputText value="#{t.turma}" />
-					</p:column>
-				</p:selectOneListbox>
-				<h:outputText value="Login" />
-				<p:keyboard value="#{alunoBuilder.login}" />
-				<h:outputText value="Senha" />
-				<p:password value="#{alunoBuilder.senha}" feedback="true"
-					required="true" converterMessage="ERRO: O mínimo é 6 e o máximo é 10"> 
-					<f:validateLength minimum="6" maximum="10" />
-				</p:password>
-				<p:commandButton value="Cadastrar"
-					action="#{controladorAluno.adicionar(alunoBuilder.construir())}"
-					update="mensagens" />
-			</p:panelGrid>
-		</p:fieldset>
-	</h:form>
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+    	<c:choose>
+			<c:when test="#{controladorAluno.autenticarLoginAluno()==true}">
+			<h:form id="FormQuest">
+				<p:messages id="mensagens" showDetail="true" autoUpdate="true"
+					closable="true" />
+				<p:fieldset legend="Cadastrar Aluno">
+					<p:panelGrid columns="2">
+						<h:outputText value="Nome Completo" />
+						<p:inputText value="#{alunoBuilder.nome}" />
+						<h:outputText value="Turma" />
+						<p:selectOneListbox id="turma" value="#{alunoBuilder.turma}"
+							converter="convertor" var="t" filter="true"
+							filterMatchMode="contains">
+							<f:selectItems var="turmas" itemLabel="#{turmas.turma}"
+								itemValue="#{turmas}" value="#{controladorTurma.recuperarTodos()}" />
+		
+							<p:column>
+								<h:outputText value="#{t.turma}" />
+							</p:column>
+						</p:selectOneListbox>
+						<h:outputText value="Login" />
+						<p:keyboard value="#{alunoBuilder.login}" />
+						<h:outputText value="Senha" />
+						<p:password value="#{alunoBuilder.senha}" feedback="true"
+							required="true" converterMessage="ERRO: O mínimo é 6 e o máximo é 10"> 
+							<f:validateLength minimum="6" maximum="10" />
+						</p:password>
+						<p:commandButton value="Cadastrar"
+							action="#{controladorAluno.adicionar(alunoBuilder.construir())}"
+							update="mensagens" />
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</c:when>
+		<c:otherwise>
+			<ui:include src="Inicio.xhtml" />
+		</c:otherwise>
+	</c:choose>
 </h:body>
 </html>
 

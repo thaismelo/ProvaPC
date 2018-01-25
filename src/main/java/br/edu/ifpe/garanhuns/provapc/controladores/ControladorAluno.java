@@ -18,6 +18,7 @@ import org.hibernate.Session;
 
 import br.edu.ifpe.garanhuns.provapc.model.Aluno;
 import br.edu.ifpe.garanhuns.provapc.model.Professor;
+import br.edu.ifpe.garanhuns.provapc.model.Turma;
 import br.edu.ifpe.garanhuns.provapc.model.dao.DaoManagerHiber;
 import br.edu.ifpe.garanhuns.provapc.model.dao.FabricaRepositorios;
 import br.edu.ifpe.garanhuns.provapc.model.dao.RepositorioGenerico;
@@ -89,6 +90,16 @@ public class ControladorAluno {
 			}
 		}
 		return aluno;
+	}
+	public List<Aluno> recuperarAlunosPorTurma(Turma t) {
+		List<Aluno> listaDeAlunos = recuperarTodos();
+		List<Aluno> listaDeAlunoTurma = new ArrayList<Aluno>();
+		for (Aluno aluno : listaDeAlunos) {
+			if (aluno.getTurma().getTurma().equals(t.getTurma())) {
+				listaDeAlunoTurma.add(aluno);
+			}
+		}
+		return listaDeAlunoTurma;
 	}
 
 	public Aluno recupearar(int id) {

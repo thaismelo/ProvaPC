@@ -29,7 +29,10 @@
                     <h:outputText value="#{respostaQuestao.getEscolhida().getTexto()}"/>
                 </p:column>
                 <f:facet name="footer">                  
-                    <p:commandButton value="Provas" action="CrudProvaAluno.xhtml"/>
+                    <p:commandButton value="Minhas provas" action="CrudProvaAluno.xhtml"/>
+                </f:facet>
+                <f:facet name="footer">                  
+                    <h:outputText value="Nota: #{controladorProva.recuperarRespostaProva().resultado()}"/>
                 </f:facet>
             </p:dataTable>
         </h:form>

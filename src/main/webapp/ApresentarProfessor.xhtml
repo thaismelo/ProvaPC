@@ -4,38 +4,46 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Apresentar Aluno</title>
+        <title></title>
     </h:head>
     <h:body>
-        <h:form>
-            <ui:include src="Menu.xhtml"/>
-            <p:dataTable id="table"
-                         value="#{controladorProfessor.recuperar()}" 
-                         var="professor" 
-                         selectionMode="single"
-                         selection="#{controladorProfessor.selected}"
-                         rowKey="#{professor.id}">
-                <f:facet name="header">
-                    <h:outputText value="Apresentar Professores"/>
-                </f:facet>
-                <p:column headerText="Login">
-                    <h:outputText value="#{professor.login}"/>
-                </p:column>
-                <p:column headerText="Senha">
-                    <h:outputText value="#{professor.senha}"/>
-                </p:column>
-                <p:column headerText="Nome">
-                    <h:outputText value="#{professor.nome}"/>
-                </p:column>
-                <f:facet name="footer">
-                    <p:commandButton value="Alterar" action="AlterarProfessor.xhtml"/>
-                    <p:commandButton value="Atualizar Página" oncomplete=":FromProfessor:table"/>
-                    <p:commandButton value="Remover" oncomplete=":FromProfessor:table" action="#{controladorProfessor.remover()}"/>
-                </f:facet>
-            </p:dataTable>
-        </h:form>
+    	<c:choose>
+			<c:when test="#{controladorProfessor.autenticarLoginProfessor()==true}">
+		        <h:form>
+		            <ui:include src="Menu.xhtml"/>
+		            <p:dataTable id="table"
+		                         value="#{controladorProfessor.recuperar()}" 
+		                         var="professor" 
+		                         selectionMode="single"
+		                         selection="#{controladorProfessor.selected}"
+		                         rowKey="#{professor.id}">
+		                <f:facet name="header">
+		                    <h:outputText value="Apresentar Professores"/>
+		                </f:facet>
+		                <p:column headerText="Login">
+		                    <h:outputText value="#{professor.login}"/>
+		                </p:column>
+		                <p:column headerText="Senha">
+		                    <h:outputText value="#{professor.senha}"/>
+		                </p:column>
+		                <p:column headerText="Nome">
+		                    <h:outputText value="#{professor.nome}"/>
+		                </p:column>
+		                <f:facet name="footer">
+		                    <p:commandButton value="Alterar" action="AlterarProfessor.xhtml"/>
+		                    <p:commandButton value="Atualizar Página" oncomplete=":FromProfessor:table"/>
+		                    <p:commandButton value="Remover" oncomplete=":FromProfessor:table" action="#{controladorProfessor.remover()}"/>
+		                </f:facet>
+		            </p:dataTable>
+		        </h:form>
+		    </c:when>
+			<c:otherwise>
+					<ui:include src="Inicio.xhtml" />
+			</c:otherwise>
+		</c:choose>
     </h:body>
 </html>
 

@@ -4,31 +4,39 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-	<title>Cadastro Professor</title>
-</h:head>
-<h:body>
-	<h:form id="FormQuest">
-		<p:messages id="mens" showDetail="true" autoUpdate="true"
-			closable="true" />
-		<p:fieldset legend="Cadastrar Professor">
-			<p:panelGrid columns="2">
-				<h:outputText value="Nome" />
-				<p:inputText value="#{professorBuilder.nome}" />
-				<h:outputText value="Login" />
-				<p:keyboard value="#{professorBuilder.login}" />
-				<h:outputText value="Senha" />
-				<p:password value="#{professorBuilder.senha}" required="true" feedback="true"
-				validatorMessage="Formato de senha inválido. Min: 6 Max 10">
-					<f:validateLength minimum="6" maximum="10"/>
-				</p:password>
-				<p:commandButton value="Cadastrar"
-					action="#{controladorProfessor.adicionar(professorBuilder.construir())}"
-					update="mens" />
-			</p:panelGrid>
-		</p:fieldset>
-	</h:form>
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+    	<c:choose>
+			<c:when test="#{controladorProfessor.autenticarLoginProfessor()==false}">
+			<h:form id="FormQuest">
+				<p:messages id="mens" showDetail="true" autoUpdate="true"
+					closable="true" />
+				<p:fieldset legend="Cadastrar Professor">
+					<p:panelGrid columns="2">
+						<h:outputText value="Nome" />
+						<p:inputText value="#{professorBuilder.nome}" />
+						<h:outputText value="Login" />
+						<p:keyboard value="#{professorBuilder.login}" />
+						<h:outputText value="Senha" />
+						<p:password value="#{professorBuilder.senha}" required="true" feedback="true"
+						validatorMessage="Formato de senha inválido. Min: 6 Max 10">
+							<f:validateLength minimum="6" maximum="10"/>
+						</p:password>
+						<p:commandButton value="Cadastrar"
+							action="#{controladorProfessor.adicionar(professorBuilder.construir())}"
+							update="mens" />
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</c:when>
+			<c:otherwise>
+					<ui:include src="CrudProvaProfessor.xhtml" />
+			</c:otherwise>
+		</c:choose>
 </h:body>
 </html>
 
