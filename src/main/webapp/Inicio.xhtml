@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+		<link rel="stylesheet" type="text/css" href="../resources/css/imagem.css" />
+	</h:head>
+    <h:body>
+        
+        <h:form>
+        	<p:panel id="provapc" header="ProvaPC" toggleable="true" toggleOrientation="provapc">
+		        <p:fieldset legend="Você é:">
+		        	<p:commandButton value="Professor" action="LogarProfessor.xhtml"><img style="vertical-align:middle"  src="https://www.prchecker.info/free-icons/128x128/teacher_128_px.png"   id="Image_professores"   name="Image_professores"   border="0" ></img></p:commandButton>
+		        	<p:commandButton value="Aluno" action="LogarAluno.xhtml"><img style="vertical-align:middle"  src="https://www.prchecker.info/free-icons/128x128/student_128_px.png"   id="Image_alunos"   name="Image_alunos"   border="0" ></img></p:commandButton>
+		        </p:fieldset>
+		     </p:panel>
+        </h:form>
+        
+
+        
+        
+    </h:body>
+</html>
+

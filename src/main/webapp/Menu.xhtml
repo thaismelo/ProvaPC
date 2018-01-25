@@ -8,16 +8,15 @@
     </h:head>
     <h:body>
         <p:menubar>
-            <p:submenu label="Apresentar">
-                <p:menuitem value="Prova" url="CrudProva.xhtml"/>
-                <p:menuitem value="Aluno" url="ApresentarAluno.xhtml"/>
-                <p:menuitem value="Professor" url="ApresentarProfessor.xhtml"/>
-                <p:menuitem value="Turma" url="ApresentarTurma.xhtml"/>
+            <p:submenu label="Ver">
+                <p:menuitem value="Provas" url="CrudProvaProfessor.xhtml"/>
+                <p:menuitem value="Turmas" url="ApresentarTurma.xhtml"/>
+                <p:menuitem value="Meus dados" url="ApresentarProfessor.xhtml"/>
 
             </p:submenu>
             <p:menuitem value="Criar Prova" url="ProvaPronta.xhtml"/>
-            <p:menuitem value="Cadastrar Aluno" url="CadastrarAluno.xhtml"/>
-            <p:menuitem value="Cadastrar Professor" url="CadastrarProfessor.xhtml"/>
+      		<p:menuitem value="Sair" action="#{controladorProfessor.sairDoSistema()}"/>
+      		
 
         </p:menubar>
 

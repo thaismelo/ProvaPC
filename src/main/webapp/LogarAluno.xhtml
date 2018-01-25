@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Login Aluno</title>
+</h:head>
+<h:body>
+	<h:form id="FormQuest">
+		<p:panel id="provapc" header="ProvaPC" toggleable="true" toggleOrientation="provapc">
+			<p:panel><h4 style="font-weight: 500; font-family: sans-serif;">Ainda não
+					possui uma conta?</h4><h:outputLink value="CadastrarAluno.xhtml">Cadastre-se</h:outputLink>
+					<br></br> <h4 style="font-weight: 500; font-family: sans-serif;">Não é aluno?</h4><h:outputLink value="Inicio.xhtml">Voltar</h:outputLink>
+				</p:panel>
+				
+			
+			<p:messages id="mens" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<p:fieldset legend="Aluno">
+				<p:panelGrid columns="2">
+					<h:outputText value="Login" />
+					<p:keyboard value="#{alunoBuilder.login}" required="true"
+							requiredMessage="Por favor insira seu login."/>
+					<h:outputText value="Senha" />
+					<p:password value="#{alunoBuilder.senha}" required="true" feedback="true"
+						requiredMessage="Por favor insira sua senha.">
+					</p:password>
+					<p:commandButton value="Entrar"
+						action="#{controladorAluno.realizarLogin(alunoBuilder.getLogin(),alunoBuilder.getSenha())}"
+						update="mens" />
+				</p:panelGrid>
+			</p:fieldset>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
+
