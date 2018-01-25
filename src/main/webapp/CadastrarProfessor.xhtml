@@ -10,7 +10,6 @@
 </h:head>
 <h:body>
 	<h:form id="FormQuest">
-		<ui:include src="Menu.xhtml" />
 		<p:messages id="mens" showDetail="true" autoUpdate="true"
 			closable="true" />
 		<p:fieldset legend="Cadastrar Professor">
@@ -20,7 +19,8 @@
 				<h:outputText value="Login" />
 				<p:keyboard value="#{professorBuilder.login}" />
 				<h:outputText value="Senha" />
-				<p:password value="#{professorBuilder.senha}" required="true" feedback="true">
+				<p:password value="#{professorBuilder.senha}" required="true" feedback="true"
+				validatorMessage="Formato de senha inválido. Min: 6 Max 10">
 					<f:validateLength minimum="6" maximum="10"/>
 				</p:password>
 				<p:commandButton value="Cadastrar"

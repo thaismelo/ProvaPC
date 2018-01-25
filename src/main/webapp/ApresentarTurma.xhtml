@@ -19,12 +19,10 @@
                          selection="#{controladorTurma.selected}"
                          rowKey="#{turma.id}">
                 <f:facet name="header">
-                    <h:outputText value="Apresentar Turmas"/>
+                    <h:outputText value="Turmas"/>
                 </f:facet>
-                <p:column headerText="id">
-                    <h:outputText value="#{turma.id}"/>
-                </p:column>
-                <p:column headerText="turma">
+                
+                <p:column>
                     <h:outputText value="#{turma.turma}"/>
                 </p:column>
                 <f:facet name="footer">

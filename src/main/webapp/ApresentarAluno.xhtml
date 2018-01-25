@@ -10,10 +10,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <ui:include src="Menu.xhtml"/>
+            <ui:include src="MenuAluno.xhtml"/>
             
             <p:dataTable id="table"
-                         value="#{controladorAluno.recuperarTodos()}" 
+                         value="#{controladorAluno.recuperar()}" 
                          var="aluno" 
                          selectionMode="single"
                          selection="#{controladorAluno.selected}"
@@ -21,25 +21,17 @@
                 <f:facet name="header">
                     <h:outputText value="Apresentar Alunos"/>
                 </f:facet>
-                <p:column headerText="id">
-                    <h:outputText value="#{aluno.id}"/>
-                </p:column>
                 <p:column headerText="Nome">
                     <h:outputText value="#{aluno.nome}"/>
                 </p:column>
                 <p:column headerText="Login">
                     <h:outputText value="#{aluno.login}"/>
-                </p:column>
-                <p:column headerText="Senha">
-                    <h:outputText value="#{aluno.senha}"/>
-                </p:column>
+                </p:column>               
                 <p:column headerText="Turma">
-                    <h:outputText value="#{aluno.turma}">
-                        <f:converter converterId="convertor"/>
+                    <h:outputText value="#{aluno.turma.turma}">
                     </h:outputText>
                 </p:column>
                 <f:facet name="footer">
-                    <p:commandButton value="Adicionar Aluno" action="CadastrarAluno.xhtml"/>
                     <p:commandButton value="Alterar" action="AlterarAluno.xhtml"/>
                     <p:commandButton value="Atualizar Página" oncomplete=":FromAluno:table"/>
                     <p:commandButton value="Remover" oncomplete=":FromAluno:table" action="#{controladorAluno.remover()}"/>
