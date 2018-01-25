@@ -160,7 +160,14 @@ public class Questao{
     public void setAlternativas(List<Alternativa> alternativas) {
         this.alternativas = alternativas;
     }
-   
+    public String veracidadeDaQuestao(){
+    	String veracidade=null;
+    	for(int i=0;i<getAlternativas().size();i++){
+    		if(getAlternativas().get(i).isVeracidade()==true){
+    			veracidade=getAlternativas().get(i).getTexto();
+    		}
+    	}return veracidade;
+    }
     
 }
             

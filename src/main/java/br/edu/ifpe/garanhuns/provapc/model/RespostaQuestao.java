@@ -42,7 +42,9 @@ public class RespostaQuestao {
     public Alternativa getEscolhida() {
         return escolhida;
     }
-
+    public String escolhida() {
+        return escolhida.getTexto();
+    }
     public void setEscolhida(Alternativa escolhida) {
         this.escolhida = escolhida;
     }

@@ -23,6 +23,8 @@ import javax.persistence.MapKeyClass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+
 /**
  *
  * @author Thais
@@ -40,10 +42,11 @@ public class RespostaProva {
     
     @Column(name="nomealuno")
     private String nomeAluno;
-    
-    @MapKey
+    @Column(name="loginAluno")
+    private String loginAluno;
+	@MapKey
     @MapKeyClass(Questao.class)
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private final Map<Questao, RespostaQuestao> respostas;
 
     public String getNomeAluno() {
@@ -74,8 +77,11 @@ public class RespostaProva {
     public double calculaPontuacao() {
         return 1;
     }
+   
 
-    public long getId() {
+    
+
+	public long getId() {
         return id;
     }
 
@@ -112,5 +118,16 @@ public class RespostaProva {
              soma += rq.calcularPontuacao();
          }
          return soma;
+         
      }
+
+	public String getLoginAluno() {
+		return loginAluno;
+	}
+
+	public void setLoginAluno(String loginAluno) {
+		this.loginAluno = loginAluno;
+	}
+     
+     
 }
