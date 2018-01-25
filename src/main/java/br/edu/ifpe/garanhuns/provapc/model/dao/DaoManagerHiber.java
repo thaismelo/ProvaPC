@@ -6,11 +6,18 @@ package br.edu.ifpe.garanhuns.provapc.model.dao;
  */
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import br.edu.ifpe.garanhuns.provapc.model.Aluno;
+import br.edu.ifpe.garanhuns.provapc.model.Professor;
+import br.edu.ifpe.garanhuns.provapc.model.Prova;
+import br.edu.ifpe.garanhuns.provapc.model.RespostaProva;
 
 /**
  *
@@ -148,7 +155,64 @@ public class DaoManagerHiber{
             s.close();
         }
     }
+    public boolean recuperarProfessorLogin(String login, String senha){
+		try {
 
+			System.out.println("login "+login);
+			System.out.println("senha "+senha);
+			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			Query query = session.createQuery("from Professor where login=:login and senha=:senha");
+			query.setString("login",login);
+			query.setString("senha",senha);
+			
+			List list=query.list();
+			System.out.println("list size "+list.size());
+			if(list.size()==1){
+				return true;
+			}else{
+				return false;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+    public boolean recuperarAlunoLogin(String login, String senha){
+		try {
+
+			System.out.println("login "+login);
+			System.out.println("senha "+senha);
+			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			Query query = session.createQuery("from Aluno where login=:login and senha=:senha");
+			query.setString("login",login);
+			query.setString("senha",senha);
+			List list=query.list();
+			System.out.println("list size "+list.size());
+			if(list.size()==1){
+				return true;
+			}else{
+				return false;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+    public List recuperarRespostaProvaPeloLogin(Prova p){
+		Aluno aluno = (Aluno) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("alunoLogado");
+		System.out.println("loginAluno "+aluno.getLogin());
+		System.out.println("idProva "+p.getId());
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from RespostaProva where prova.id="+p.getId());
+		List list=query.list();
+		return list;
+    }
     public static void main(String args[]) {
         DaoManagerHiber.getInstance();
     }
